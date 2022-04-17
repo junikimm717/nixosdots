@@ -145,17 +145,17 @@ super + {Left,Down,Up,Right}
 
 # audio stuff
 XF86AudioRaiseVolume
-   test "$(pamixer --get-volume)" -lt 100 && /usr/bin/pactl set-sink-volume 0 +5%
+   test "$(pamixer --get-volume)" -lt 100 && pamixer -i 5
 
 XF86AudioLowerVolume
-   /usr/bin/pactl set-sink-volume 0 -5%
+    pamixer -d 5
 
 XF86AudioMute
-    /usr/bin/pactl set-sink-mute 0 toggle
+    pamixer -t
 
 # brightness stuff
 {XF86MonBrightnessUp,XF86MonBrightnessDown}
-    xbacklight {+10,-10}
+    brightnessctl set {10%+,10%-}
 
 # screenshot capability
 super + shift + s

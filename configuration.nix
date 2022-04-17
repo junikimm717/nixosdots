@@ -36,7 +36,7 @@ in
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
-  networking.useDHCP = true;
+  #networking.useDHCP = true;
   #networking.interfaces.enp1s0.useDHCP = true;
 
   # Configure network proxy if necessary
@@ -52,6 +52,7 @@ in
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+  programs.slock.enable = true;
 
   # use nix flakes
   nix = {
@@ -71,7 +72,7 @@ in
   # Enable sound.
   sound.enable = true;
   hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
+  #services.blueman.enable = true;
   services.pipewire.enable = true;
   services.pipewire.alsa.enable = true;
   services.pipewire.pulse.enable = true;
@@ -118,6 +119,7 @@ in
     nerdfonts
   ];
   environment.systemPackages = with pkgs; [
+    xorg.xbacklight pamixer brightnessctl blueberry
     vim neovim neofetch pfetch tmux
     fff
     nodejs shellcheck
