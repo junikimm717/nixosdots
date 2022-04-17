@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 X=$(mpc status 2>/dev/null | grep "%)")
 if test $? -eq 0; then

@@ -69,8 +69,8 @@ override-redirect=true
 background = ${colors.secondary}
 foreground = #fff
 font-0 = Jetbrains Mono:style=Regular
-font-1 = FontAwesome:style=Regular
-font-2 = "Iosevka:pixelsize=12;0"
+font-1 = NotoColorEmoji:scale=13
+font-2 = Font Awesome 5 Free:style=Regular
 font-3 = RobotoMono Nerd Font:pixelsize=12;1
 
 [module/pulseaudio]
@@ -80,7 +80,6 @@ format-volume-prefix-foreground = ${colors.primary}
 format-volume = <label-volume>
 label-volume = %percentage%%
 label-muted = muted
-label-muted-foreground = ${colors.disabled}
 
 ;;; ===============================================
 ;;; BACKLIGHT BAR
@@ -95,12 +94,22 @@ radius=5
 override-redirect=true
 background = ${colors.secondary}
 font-0 = Jetbrains Mono:style=Regular
+font-1 = Font Awesome 5 Free:style=Regular
+font-2 = NotoColorEmoji:scale=14
 
 [module/backlight]
 
 type = internal/backlight
 card = intel_backlight
-format = BRI <label>
+format = <ramp> <label>
+; Available tokens:
+; Only applies if <ramp> is used
+ramp-0 = 🔅
+ramp-1 = 🔅
+ramp-2 = 🔆
+ramp-3 = 🔆
+ramp-4 = 🔆
+enable-scroll = false
 label = "%percentage%%"
 
 ;;; ===========================================
@@ -150,6 +159,9 @@ radius=5
 override-redirect=true
 background = ${colors.secondary}
 font-0 = Jetbrains Mono:style=Regular
+font-1 = Font Awesome 5 Free:style=Regular
+font-2 = NotoColorEmoji:scale=14
+
 
 [module/battery]
 type = internal/battery
@@ -159,12 +171,18 @@ adapter = ADP1
 poll-interval = 5
 
 time-format = %H:%M
-format-charging = CHR <label-charging>
-format-discharging = DIS <label-discharging>
+format-charging = ⚡ <ramp-capacity> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
 
 label-charging = %percentage%%
 label-discharging = %percentage%%
 label-full =  100%
+
+ramp-capacity-0 = 🚫🔋
+ramp-capacity-1 = 🔋
+ramp-capacity-2 = 🔋
+ramp-capacity-3 = 🔋
+ramp-capacity-4 = 🔋
 
 ;;; ===============================================
 ;;; WLAN BAR
@@ -180,7 +198,8 @@ radius=5
 override-redirect=true
 background = ${colors.secondary}
 font-0 = Jetbrains Mono:style=Regular
-font-1 = NotoColorEmoji:scale=13
+font-1 = Font Awesome 5 Free:style=Regular
+font-2 = NotoColorEmoji:scale=14
 
 [module/wlan]
 type = internal/network

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+while true; do
+  if ! eval "$@" ; then
+    echo "Failed"
+    exit 1
+  fi
+  sleep 0.5s
+done

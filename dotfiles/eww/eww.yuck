@@ -131,7 +131,7 @@
     (button :class "launchbutton" :onclick "rofi -show drun&"  ""))
 
     (eventbox :class "launch"
-    (button :class "launchbutton" :onclick "alacritty -e \"nvim\"&"  ""))
+    (button :class "launchbutton" :onclick "kitty -e \"nvim\"&"  ""))
 
     (eventbox :class "launch"
     (button :class "launchbutton" :onclick "code&"  ""))
@@ -158,8 +158,8 @@
 (deflisten battery :initial "UNK" `loop battery.sh`)
 (deflisten brightness :initial "UNK" `loop brightness.py`)
 (deflisten time :initial "No Time" `~/.config/eww/scripts/date.sh`)
-(deflisten music :initial "-" `loop ~/.config/eww/scripts/music.sh status`)
-(deflisten paused :initial "-" `loop ~/.config/eww/scripts/music.sh paused`)
+(deflisten music :initial "-" `~/.config/eww/scripts/loop ~/.config/eww/scripts/music.sh status`)
+(deflisten paused :initial "-" `~/.config/eww/scripts/loop ~/.config/eww/scripts/music.sh paused`)
 (defpoll cpu :interval "1s" "echo `top -b -n1 | grep \"Cpu(s)\" | awk '{print $2 + $4}'`")
 (defpoll songperc :interval "1s" "~/.config/eww/scripts/songperc.sh")
 (defpoll rems :interval "1m" "rems l")
