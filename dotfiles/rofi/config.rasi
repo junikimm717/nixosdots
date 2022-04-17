@@ -1,0 +1,90 @@
+// vim:ft=css
+
+configuration {
+  modi: "drun";
+  font: "Jetbrains Mono 14";
+  display-drun: "";
+  icon-theme: "Adwaita";
+  drun-display-format: "{name}";
+  sidebar-mode: true;
+}
+
+@theme "/dev/null"
+
+* {
+  bg: #242e35;
+  fg: #cec0af;
+  button: #1b1e25;
+  background-color: @bg;
+  text-color: @fg;
+}
+
+window {
+  transparency: "real";
+  width: 50%;
+  height: 50%;
+}
+
+prompt {
+  enabled: false;
+  background-color: @bg;
+  icon-size: 90;
+  padding: 12px 18px 10px 18px;
+  border-radius: 8px;
+}
+
+entry {
+  placeholder: "Search";
+  placeholder-color: @fg;
+  expand: true;
+  padding: 1.5%;
+  border-radius: 8px;
+}
+
+inputbar {
+  children: [ prompt, entry ];
+  background-image: url("geo.png");
+  expand: false;
+  border-radius: 0px 0px 0px 0px;
+  padding: 100px 300px 30px 30px;
+}
+
+listview {
+  columns: 3;
+  lines: 4;
+  cycle: false;
+  dynamic: true;
+  border: 0px 0px 0px 0px;
+  layout: vertical;
+  padding: 20px 20px 20px 20px;
+  border-color: @fg;
+  border-radius: 0px 0px 0px 0px;
+}
+
+mainbox {
+  children: [ inputbar, listview ];
+}
+
+element {
+  orientation: vertical;
+  padding: 1.5% 0% 1.5% 0%;
+  border-radius: 8px;
+}
+
+element-text {
+  expand: true;
+  vertical-align: 1;
+  margin: 0.5% 1% 0% 1%;
+  background-color: inherit;
+  text-color: inherit;
+}
+
+element-icon {
+  size: 25px;
+}
+
+element selected {
+  background-color: @button;
+  border-radius: 10px;
+  text-color: #f0cad5;
+}

@@ -1,0 +1,162 @@
+$beige:#cec0af;
+$darkblue:#242e35;
+$lightblue:#2e02d0;
+$pink:#f0cad5;
+
+$gray:        #3B4442;
+$white:       #1B2020;
+$gray:        #2A3331;
+$gray: $darkblue;
+$green:       #7CA198;
+$yellow:      #DDB278;
+$blue:        #6080B0;
+$purple:      #8E6F98;
+$cyan:        #6ca8cf;
+
+
+
+$bg : #000000;
+$fg : #ffffff;
+$border : #cec0af;
+
+* {
+  all: unset;
+  font-family: JetBrains Mono, Sans-serif;
+}
+
+.background {
+  //background-color: #{$darkblue};
+  background-color: transparent;
+  color: #{beige};
+}
+
+.container {
+  //background-color: #{$darkblue};
+  background-color: black;
+  color: #{$fg};
+  //border: 5px solid #{$border};
+  border-radius: 1rem;
+  margin: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.musiccontainer {
+  font-size: 20px;
+  padding: 10px;
+}
+
+.header {
+  font-size: 30px;
+}
+
+.body {
+  font-size: 20px;
+}
+
+.progress  {
+  margin: 1rem;
+  border-radius:1rem;
+  min-height: 10px;
+}
+
+
+.bluescale {color: #{$blue};}
+.greenscale {color: #{$green};}
+.yellowscale {color: #{$yellow};}
+
+.progress scale trough highlight { border-radius: 10px; }
+.bluescale scale trough highlight {background-color: #{$blue};}
+.greenscale scale trough highlight {background-color: #{$green};}
+.yellowscale scale trough highlight {background-color: #{$yellow};}
+.purplescale scale trough highlight {background-color: #{$purple};}
+
+
+.progress scale trough,
+{
+  background-color: $gray;
+  border-radius: 10px;
+  min-height: 20px;
+  min-width: 135px;
+  margin-left: 20px;
+}
+
+// music bar
+
+.musicprogress  {
+  margin: 1rem;
+  border-radius:1rem;
+  min-height: 10px;
+}
+.musicprogress scale trough highlight { border-radius: 10px; }
+
+.musicprogress scale trough,
+{
+  background-color: $gray;
+  border-radius: 10px;
+  min-height: 20px;
+  min-width: 500px;
+  margin-left: 20px;
+}
+
+.music {
+  margin: 1rem;
+  padding: 1rem;
+  background-color: #{$darkblue};
+  border-radius:2rem;
+  border: 5px solid #{$border};
+  font-size: 20px;
+}
+
+.musicsel {
+  padding: 0.1rem;
+  //background-color: #{$darkblue};
+  border-radius:2rem;
+  font-size: 50px;
+}
+
+// bar
+
+.box {
+  margin: 10px;
+}
+
+.launch {
+  margin: 0.5rem;
+  margin-left:2rem;
+  margin-right:2rem;
+  border-radius:5px;
+  font-size: 50px;
+  color: black;
+  background-color: $beige;
+}
+
+@keyframes spin {
+  to { -gtk-icon-transform: rotate(1turn); }
+}
+
+.launch:hover {
+  background-color: $darkblue;
+  color: white;
+
+  animation-name: spin;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+
+.launchbutton {
+  padding: 0.1rem;
+  padding-left: 1.0rem;
+  padding-right: 1.0rem;
+}
+
+// ad-hoc stuff
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.beige {
+  color: $beige;
+}

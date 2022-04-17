@@ -1,0 +1,165 @@
+(defwindow right
+           :monitor 0
+           :geometry (geometry :x "-5%"
+                               :y "0%"
+                               :width "30%"
+                               :height "70%"
+                               :anchor "right center")
+           :stacking 'bg'
+           :windowtype "dock"
+           :wm-ignore true
+    (root)
+  )
+
+(defwidget root[]
+  (box 
+    :class "background" 
+    :orientation "v" 
+    :space-evenly false
+    :spacing 0
+    (musicwidget) 
+    (box
+          :class "background"
+          :orientation "h"
+          :space-evenly true
+          :spacing 10
+          (sys) (cal))
+    (box
+          :class "background"
+          :orientation "h"
+          :space-evenly true
+          :spacing 10
+          (bar))
+    ))
+
+(defwidget musicwidget[]
+  (box 
+    :class "container musiccontainer"
+    :spacing 10
+    :orientation "v"
+    (label :text music :wrap true :show-truncated true :limit-width 80)
+    (box
+      :class "musicprogress box purplescale"
+      :orientation "h"
+      :space-evenly false
+      :halign "center"
+      (scale 
+        :min 0
+        :max 101
+        :active false
+        :value "${songperc}"
+        :valign "center"
+        ))
+    (box 
+      :class "musicsel"
+      :spacing 90
+      :space-evenly true
+      :orientation "h"
+      (button :onclick "mpc prev" :class "musicbutton"  "玲") 
+      (button :onclick "mpc toggle" :class "musicbutton"  paused) 
+      (button :onclick "mpc next" :class "musicbutton"  "怜"))))
+
+(defwidget sys []
+  (box 
+    :class "container header" 
+    :orientation "v" 
+    :space-evenly true
+    :valign "center"
+    (box
+      :class "progress box bluescale"
+      :orientation "h"
+      :space-evenly false
+      (label :text " /")
+      (scale 
+        :min 0
+        :max 101
+        :active false
+        :value {EWW_DISK["/"]["used_perc"]} 
+        :valign "center"
+        ))
+    (box
+      :class "progress box bluescale"
+      :orientation "h"
+      :space-evenly false
+      (label :text " ")
+      (scale 
+        :min 0
+        :max 101
+        :active false
+        :value {EWW_DISK["/home"]["used_perc"]} 
+        :valign "center"
+        ))
+
+    (box
+      :class "progress box greenscale"
+      :orientation "h"
+      :space-evenly false
+      (label :text "  ")
+      (scale 
+        :min 0
+        :max 101
+        :active false
+        :value {EWW_BATTERY["BAT0"]["capacity"]} 
+        :valign "center"
+        ))
+
+    (box
+      :class "progress box yellowscale"
+      :orientation "h"
+      :space-evenly false
+      (label :text "CPU")
+      (scale 
+        :min 0
+        :max 101
+        :active false
+        :value "${cpu}"
+        :valign "center"
+        ))
+
+    ))
+
+(defwidget bar[]
+  (box 
+    :class "background header mt-20"
+    :orientation "h"
+    :space-evenly true
+    :spacing 20
+    :halign "center"
+    :hexpand true
+
+    (eventbox :class "launch"
+    (button :class "launchbutton" :onclick "rofi -show drun&"  ""))
+
+    (eventbox :class "launch"
+    (button :class "launchbutton" :onclick "alacritty -e \"nvim\"&"  ""))
+
+    (eventbox :class "launch"
+    (button :class "launchbutton" :onclick "code&"  ""))
+
+    (eventbox :class "launch"
+    (button :class "launchbutton" :onclick "brave&"  "爵"))
+    ))
+
+;(defwidget bat []
+;  (box :class "container header" :orientation "v" 
+;      :space-evenly true
+;      (circular-progress 
+;        :value {EWW_BATTERY["BAT0"]["capacity"]} 
+;        :class "progress" :thickness 10)
+;      (label :text battery)
+;    ))
+
+(defwidget cal []
+  (box :class "container beige" :orientation "v" :space-evenly true
+    (calendar :valign "center")
+    ;(label :text rems :valign "center")
+    ))
+
+(deflisten battery :initial "UNK" `loop battery.sh`)
+(deflisten brightness :initial "UNK" `loop brightness.py`)
+(deflisten time :initial "No Time" `~/.config/eww/scripts/date.sh`)
+(deflisten music :initial "-" `loop ~/.config/eww/scripts/music.sh status`)
+(deflisten paused :initial "-" `loop ~/.config/eww/scripts/music.sh paused`)
+(defpoll cpu :interval "1s" "echo `top -b -n1 | grep \"Cpu(s)\" | awk '{print $2 + $4}'`")
+(defpoll songperc :interval "1s" "~/.config/eww/scripts/songperc.sh")
+(defpoll rems :interval "1m" "rems l")
