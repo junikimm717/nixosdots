@@ -2,7 +2,7 @@
 
 NixOS Dotfiles for Juni Kim
 
-![bspwm.png]
+![screenshot](bspwm.png)
 
 ## Programs
 
