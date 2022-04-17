@@ -31,6 +31,7 @@
     ncmpcpp 
     ranger ueberzug sxiv poppler_utils
     zathura
+    libsecret
   ];
 
   programs.neovim = {
@@ -51,6 +52,9 @@
     enable = true;
     userName = "Juni Kim";
     userEmail = "junikimm717@gmail.com";
+    extraConfig = {
+      credential.helper = "store";
+    };
   };
 
   programs.zsh = {
