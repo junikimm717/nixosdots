@@ -126,11 +126,12 @@ in
     bash dash git
     wget brave scrot
     nfs-utils gcc gnumake
-    mpd htop
+    mpd mpc_cli htop
   ];
   
   services.mpd = {
     enable = true;
+    musicDirectory = "/home/junikim/music";
     user = "junikim";
   };
 

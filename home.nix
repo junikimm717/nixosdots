@@ -29,7 +29,7 @@
     bspwm sxhkd polybarFull kitty nitrogen dmenu rofi picom eww
     nfs-utils gcc gnumake pulsemixer
     ncmpcpp 
-    ranger ueberzug sxiv
+    ranger ueberzug sxiv poppler_utils
     zathura
   ];
 
@@ -66,7 +66,7 @@
       "e" = "exit";
       "sy" = "systemctl";
       "cp" = "cp -r";
-      "r" = "source ranger";
+      "ra" = "source ranger";
     };
   };
 

@@ -1,2 +1,0 @@
-xrandr -s 1600x900
-exec dbus-run-session "$HOME/cwm.sh"

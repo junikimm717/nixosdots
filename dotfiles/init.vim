@@ -4,6 +4,8 @@ map k gk
 set mouse+=a
 
 "let g:airline_theme ='base16_atelier_heath_light'
+let g:airline_theme='base16_chalk'
+let g:airline_powerline_fonts = 1
 
 set number
 set norelativenumber
@@ -27,9 +29,10 @@ autocmd FileType markdown,tex,text set nosmarttab noautoindent
 " for C-like programming, have automatic indentation:
 autocmd FileType c,cpp,slang set cindent
 " * Keystrokes -- Insert Mode
-autocmd Filetype python set shiftwidth=4 tabstop=4 softtabstop=4
+autocmd Filetype python set shiftwibasdth=4 tabstop=4 softtabstop=4
 
-"Coc Stuff
+" ========================================================
+" Coc Stuff
 
 set encoding=utf-8
 
@@ -199,3 +202,4 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " END Coc
+" =====================================================================
