@@ -10,12 +10,30 @@ f() {
     cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
 }
 
+function r {
+    local IFS=$'\t\n'
+    local tempfile="$(mktemp -t tmp.XXXXXX)"
+    local ranger_cmd=(
+        command
+        ranger
+        --cmd="map Q chain shell echo %d > "$tempfile"; quitall"
+    )
+    
+    ${ranger_cmd[@]} "$@"
+    if [[ -f "$tempfile" ]] && [[ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]]; then
+        cd -- "$(cat "$tempfile")" || return
+    fi
+    command rm -f -- "$tempfile" 2>/dev/null
+}
+
+export TERM=alacritty
+
 timeout 3s pfetch
 
 # =======================================================
 # MKTEX configuration
 
-MKTEX_TEMPLATE_DIR="$HOME/.config/mktex_templates"
+export MKTEX_TEMPLATE_DIR="$HOME/.config/mktex_templates"
 
 # =======================================================
 

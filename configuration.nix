@@ -2,11 +2,15 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
-  #brotherdriver = pkgs.callPackage ./brother.nix { };
+  brotherdriver = import ./brother.nix { 
+    pkgsi686Linux = pkgs.pkgsi686Linux; 
+    lib = lib;
+    pkgs = pkgs;
+  };
 in
 {
   imports =
@@ -70,7 +74,7 @@ in
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-  services.printing.drivers = [ pkgs.brlaser ];
+  services.printing.drivers = [ brotherdriver.driver brotherdriver.cupswrapper ];
 
   # Enable sound.
   sound.enable = true;
@@ -138,6 +142,7 @@ in
     nfs-utils gcc gnumake
     mpd mpc_cli htop
     gnome.seahorse
+    ranger
   ];
   
   services.mpd = {

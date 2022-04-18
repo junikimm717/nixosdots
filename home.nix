@@ -31,9 +31,8 @@ let
     src = fetchFromGitHub {
       owner = "junikimm717";
       repo = "mktex";
-      rev = "b6076d28b4c59033788dd87abd99bfcd37491f4b";
-      #sha256 = "893735417239130111a5ccf4551d9dee560dc71c400569f1327ec97b4ffc8a75";
-      sha256 = "022g2skh647akff2xbdnq5hhgdqzrjqhgcfdjw00z2zpiklh4qqa";
+      rev = "29d14bf777596d62a5cae0b5e1b9aa696385a427";
+      sha256 = "1ri6nw6053yipxfp6n6hin36md6dcz9yy502i2xkdsb6y7kdv6qp";
     };
     installPhase = ''
     mkdir -p $out
@@ -152,6 +151,7 @@ in
     ".config/rofi" = {source = ./dotfiles/rofi; recursive = true;};
     ".config/eww" = {source = ./dotfiles/eww; recursive = true;};
     ".config/mktex_templates" = {source = ./mktex_templates; recursive = true;};
+    "bin" = {source = ./bin; recursive = true;};
 
     # music
     ".config/nvim/coc-settings.json".source = ./dotfiles/coc-settings.json;
