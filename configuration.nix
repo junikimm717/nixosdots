@@ -93,11 +93,12 @@ in
   services.xserver.libinput.enable = true;
 
   virtualisation.docker.enable = true;
+  virtualisation.libvirtd.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.junikim = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" "audio" "input" "docker" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "video" "audio" "input" "docker" "libvirtd" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
   };
 
@@ -134,6 +135,7 @@ in
     mpd mpc_cli htop
     gnome.seahorse
     ranger
+    virt-manager
   ];
   
   services.mpd = {
