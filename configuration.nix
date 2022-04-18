@@ -6,6 +6,7 @@
 
 let
   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+  #brotherdriver = pkgs.callPackage ./brother.nix { };
 in
 {
   imports =
@@ -24,7 +25,7 @@ in
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
   # Define on which hard drive you want to install Grub.
   boot.loader.grub.device = "nodev"; # or "nodev" for efi only
-  boot.loader.grub.useOSProber = true;
+  #boot.loader.grub.useOSProber = true;
 
   networking.hostName = "nixos-lemp"; # Define your hostname.
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -52,7 +53,8 @@ in
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  programs.slock.enable = true;
+  #programs.slock.enable = true;
+  programs.xss-lock.enable = true;
 
   # use nix flakes
   nix = {
@@ -68,6 +70,7 @@ in
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.printing.drivers = [ pkgs.brlaser ];
 
   # Enable sound.
   sound.enable = true;
@@ -80,10 +83,12 @@ in
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
 
+  virtualisation.docker.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.junikim = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" "audio" "input" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "video" "audio" "input" "docker" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
   };
   programs.zsh.enable = true;
@@ -107,7 +112,11 @@ in
     "EDITOR" = "nvim";
   };
 
-  services.gnome.gnome-keyring.enable = true;
+  services.gnome = {
+    gnome-keyring.enable = true;
+  };
+  programs.seahorse.enable = true;
+  programs.dconf.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -128,6 +137,7 @@ in
     wget brave scrot
     nfs-utils gcc gnumake
     mpd mpc_cli htop
+    gnome.seahorse
   ];
   
   services.mpd = {

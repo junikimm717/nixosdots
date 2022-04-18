@@ -1,0 +1,7 @@
+template.*
+!template.tex
+*.docx
+__pycache__
+pythontex-*
+*.pytxcode
+mktex-venv

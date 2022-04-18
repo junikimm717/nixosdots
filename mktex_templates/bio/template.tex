@@ -1,0 +1,35 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage{./Bio}
+
+\newcommand{\ohsheader}[3]{
+    #1 \par
+    #2 \par %class
+    \today \par
+    #3 %assignment
+}
+
+\usepackage[style=mla,showmedium=false,backend=biber]{biblatex}
+\addbibresource{template.bib}
+\linespread{2}
+
+\begin{document}
+
+
+\coversheet{
+Assignment Name
+}{
+Aid Received
+}{
+Time to Finish
+}{
+Questions or Uncertainty
+}{
+Reflection/Stands out
+}
+
+\printbibliography
+
+\end{document}

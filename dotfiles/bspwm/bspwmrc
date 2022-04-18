@@ -1,9 +1,11 @@
 #! /bin/sh
 
 pkill picom
-picom &
+picom --corner-radius 15 --experimental-backends &
 nitrogen --restore &
 ~/.config/polybar/launch.sh
+# sleep after 7 minutes
+#xset s 420 10
 
 
 pgrep -x sxhkd > /dev/null || sxhkd &

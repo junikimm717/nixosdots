@@ -1,0 +1,46 @@
+\usepackage{graphicx}
+
+
+% Some convenient macros for hypothesis testing
+
+\newcommand{\hypotheses}[2]{
+Hypotheses: \par
+$H_0$: #1 \par
+$H_a$: #2
+}
+
+\newcommand{\propzassumptions} {
+We always remember to assert our assumptions:
+\begin{enumerate}
+\item We have a random sample
+\item $np, n(1-p) \geq 10$ 
+\item $\text{Sample Size} > 10\%$ of population
+\end{enumerate}
+}
+
+\newcommand{\ttestassumptions} {
+We always remember our assumptions:
+\begin{enumerate}
+\item We have a random sample
+\item $n > 30$ or the sampling distribution is normal (not skewed)
+\item n < 10\% of the population
+\end{enumerate}
+}
+
+\newcommand{\chisquareassumptions} {
+We always begin with our assumptions:
+\begin{enumerate}
+\item the sample was randomly chosen
+\item all expected values are at least 5.
+\end{enumerate}
+}
+
+\newcommand{\linregassumptions} {
+We always begin with our assumptions:
+\begin{enumerate}
+\item the distribution of the residuals has mean 0.
+\item the standard deviation of the residuals does not depend on x.
+\item the residual distribution is normal.
+\item the residuals are independent from one another.
+\end{enumerate}
+}
