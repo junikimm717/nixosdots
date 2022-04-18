@@ -100,6 +100,7 @@ in
       coc-json
       coc-diagnostic
       coc-prettier
+      signal-desktop skypeforlinux
     ];
     extraConfig = builtins.readFile ./dotfiles/init.vim;
   };
@@ -142,6 +143,8 @@ in
     initExtra = builtins.readFile ./dotfiles/zshrc;
     enableSyntaxHighlighting = true;
   };
+  
+  services.syncthing.enable = true;
 
   home.file = {
     # shell-related

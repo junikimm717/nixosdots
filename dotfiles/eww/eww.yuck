@@ -86,7 +86,7 @@
         :min 0
         :max 101
         :active false
-        :value {EWW_DISK["/home"]["used_perc"]} 
+        :value {EWW_DISK["/home/junikim/docs"]["used_perc"]} 
         :valign "center"
         ))
 
