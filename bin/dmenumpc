@@ -1,0 +1,19 @@
+#!/usr/bin/env python3
+import subprocess
+
+commands = {
+    "play/pause": ["mpc", "toggle"],
+    "next": ["mpc", "next"],
+    "previous": ["mpc", "prev"],
+    "shuffle": ["mpc", "shuffle"],
+}
+
+keys ="\n".join(commands.keys())
+output = subprocess.run(["dmenu", "-i", "-fn", 'Jetbrains Mono:size=12'], input=keys, text=True, universal_newlines=True, stdout=subprocess.PIPE, encoding="utf-8")
+print(output.stdout)
+
+if len(output.stdout) != 0:
+    try:
+        subprocess.run(commands[output.stdout.strip()])
+    except KeyError:
+        print(f"Error on key '{output.stdout}'")

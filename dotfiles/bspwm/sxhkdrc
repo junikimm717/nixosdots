@@ -21,6 +21,9 @@ super + Escape
 super + e
   mt
 
+super + shift + m
+  dmenumpc
+
 #
 # bspwm hotkeys
 #

@@ -75,6 +75,11 @@ in
   # Enable CUPS to print documents.
   services.printing.enable = true;
   services.printing.drivers = [ brotherdriver.driver brotherdriver.cupswrapper ];
+  services.avahi.enable = true;
+  # Important to resolve .local domains of printers, otherwise you get an error
+  # like  "Impossible to connect to XXX.local: Name or service not known"
+  services.avahi.nssmdns = true;
+
 
   # Enable sound.
   sound.enable = true;
@@ -95,20 +100,6 @@ in
     extraGroups = [ "wheel" "video" "audio" "input" "docker" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
   };
-  programs.zsh.enable = true;
-  programs.zsh.ohMyZsh.enable = true;
-  programs.zsh.autosuggestions.enable = true;
-  programs.zsh.shellAliases = {
-    "gac" = "git add . && git commit";
-    "v" = "nvim";
-    "c" = "clear";
-    "s" = "ls";
-    "e" = "exit";
-    "sy" = "systemctl";
-    "cp" = "cp -r";
-  };
-  programs.zsh.ohMyZsh.plugins = [ "git" "command-not-found" ];
-  programs.zsh.syntaxHighlighting.enable = true;
 
   nixpkgs.config.allowUnfree = true;
   environment.homeBinInPath = true;
@@ -134,7 +125,7 @@ in
   ];
   environment.systemPackages = with pkgs; [
     xorg.xbacklight pamixer brightnessctl blueberry
-    vim neovim neofetch pfetch tmux
+    vim neovim neofetch pfetch tmux kitty
     fff
     nodejs shellcheck
     bash dash git

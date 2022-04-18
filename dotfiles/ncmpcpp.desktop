@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=MPD Client
+Comment=Run MPD Client
+Exec=kitty -e ncmpcpp
+Terminal=false
+Type=Application
+Icon=notebook
+StartupNotify=true
+#MimeType=application/x-ipynb+json;
+Categories=Development;Music;
+Keywords=cpp;

@@ -115,9 +115,13 @@ in
 
   programs.zsh = {
     enable = true;
+    enableAutosuggestions = true;
     oh-my-zsh = {
       enable = true;
       theme = "robbyrussell";
+      plugins = [
+        "git" "command-not-found"
+      ];
     };
     shellAliases = {
       "gac" = "git add . && git commit";
@@ -127,14 +131,22 @@ in
       "e" = "exit";
       "sy" = "systemctl";
       "cp" = "cp -r";
-      "ra" = "source ranger";
+      "vz" = "nvim ~/.config/nixpkgs/dotfiles/zshrc";
+      "vc" = "nvim ~/.config/nixpkgs/dotfiles/init.vim";
+      "vk" = "nvim ~/.config/nixpkgs/dotfiles/kitty.conf";
+      "sz" = "source ~/.config/nixpkgs/dotfiles/zshrc";
+      "vh" = "nvim ~/.config/nixpkgs/home.nix";
+      "hs" = "home-manager switch";
+      "dots" = "cd ~/.config/nixpkgs/dotfiles";
     };
+    initExtra = builtins.readFile ./dotfiles/zshrc;
+    enableSyntaxHighlighting = true;
   };
 
   home.file = {
     # shell-related
     ".tmux.conf".source = ./dotfiles/tmux.conf;
-    ".zshrc".source = ./dotfiles/zshrc;
+    #".zshrc".source = ./dotfiles/zshrc;
     ".config/nixpkgs/config.nix".source = ./dotfiles/config.nix;
 
     # rice configuration
@@ -156,5 +168,6 @@ in
     # music
     ".config/nvim/coc-settings.json".source = ./dotfiles/coc-settings.json;
     ".config/ncmpcpp/config".source = ./dotfiles/ncmpcpp.conf;
+    ".local/share/applications/ncmpcpp.desktop".source = ./dotfiles/ncmpcpp.desktop;
   };
 }
