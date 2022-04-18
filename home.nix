@@ -164,6 +164,7 @@ in
     ".config/eww" = {source = ./dotfiles/eww; recursive = true;};
     ".config/mktex_templates" = {source = ./mktex_templates; recursive = true;};
     "bin" = {source = ./bin; recursive = true;};
+    "wallpaper" = {source = ./dotfiles/wallpaper; recursive = true;};
 
     # music
     ".config/nvim/coc-settings.json".source = ./dotfiles/coc-settings.json;
