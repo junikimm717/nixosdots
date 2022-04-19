@@ -64,7 +64,7 @@ in
 
   home.packages = with pkgs; [
     xclip neofetch pfetch tmux file
-    fff
+    fff fzf
     nodejs python3Full
     shellcheck dash
     wget brave
@@ -78,7 +78,9 @@ in
     pandoc
     tex mt mktex
     zip unzip
-    fzf
+
+    libreoffice-fresh
+    transmission-gtk
 
     # meetings
     signal-desktop skypeforlinux zoom-us discord
@@ -104,6 +106,7 @@ in
       coc-json
       coc-diagnostic
       coc-prettier
+      coc-vimtex
     ];
     extraConfig = builtins.readFile ./dotfiles/init.vim;
   };
@@ -140,15 +143,18 @@ in
       "vz" = "nvim ~/.config/nixpkgs/dotfiles/zshrc";
       "vc" = "nvim ~/.config/nixpkgs/dotfiles/init.vim";
       "vk" = "nvim ~/.config/nixpkgs/dotfiles/kitty.conf";
+      "vs" = "nvim ~/.config/nixpkgs/dotfiles/bspwm/sxhkdrc";
+      "vb" = "nvim ~/.config/nixpkgs/dotfiles/bspwm/bspwmrc";
       "sz" = "source ~/.config/nixpkgs/dotfiles/zshrc";
       "vh" = "nvim ~/.config/nixpkgs/home.nix";
       "hs" = "home-manager switch";
+      "mp" = "ncmpcpp";
       "dots" = "cd ~/.config/nixpkgs/dotfiles";
     };
     initExtra = builtins.readFile ./dotfiles/zshrc;
     enableSyntaxHighlighting = true;
   };
-  
+
   services.syncthing.enable = true;
 
   home.file = {
@@ -170,7 +176,6 @@ in
     ".config/ranger" = {source = ./dotfiles/ranger; recursive = true;};
     ".config/rofi" = {source = ./dotfiles/rofi; recursive = true;};
     ".config/eww" = {source = ./dotfiles/eww; recursive = true;};
-    ".config/mktex_templates" = {source = ./mktex_templates; recursive = true;};
     "bin" = {source = ./bin; recursive = true;};
     "wallpaper" = {source = ./dotfiles/wallpaper; recursive = true;};
 

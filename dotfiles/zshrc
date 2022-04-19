@@ -37,8 +37,8 @@ timeout 3s pfetch
 # =======================================================
 # MKTEX configuration
 
-export MKTEX_TEMPLATE_DIR="$HOME/.config/mktex_templates"
-export MKTEX_HOOK="~/docs/ohsg10/bin/stupdate"
+export MKTEX_TEMPLATE_DIR="$HOME/.config/nixpkgs/mktex_templates"
+export MKTEX_HOOK=/home/junikim/docs/ohsg10/bin/stupdate
 
 # =======================================================
 
