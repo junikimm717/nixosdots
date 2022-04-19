@@ -21,13 +21,15 @@ in
 
   services.xserver.displayManager.startx.enable = true;
   fileSystems."/home/junikim/docs" = {
-  	device = "/dev/disk/by-label/docs";
-	fsType = "ext4";
+      device = "/dev/disk/by-label/docs";
+      fsType = "ext4";
   };
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
+  services.thermald.enable = true;
 
   networking.hostName = "nixos-lemp"; # Define your hostname.
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -55,8 +57,16 @@ in
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  #programs.slock.enable = true;
-  programs.xss-lock.enable = true;
+  services.physlock = {
+    enable = true;
+    lockMessage = "NixOS-lemp locked";
+    allowAnyUser = true;
+    lockOn = {
+      suspend = true;
+      hibernate = true;
+    };
+  };
+  #programs.xss-lock.enable = true;
 
   # use nix flakes
   nix = {
@@ -65,6 +75,8 @@ in
       experimental-features = nix-command flakes
     '';
    };
+
+  #programs.command-not-found.enable = true;
 
   # Configure keymap in X11
   services.xserver.layout = "us";
@@ -96,7 +108,7 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.junikim = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" "audio" "input" "docker" "libvirtd" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "video" "audio" "input" "docker" "libvirtd" "networkmanager" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
   };
 
@@ -134,6 +146,9 @@ in
     gnome.seahorse
     ranger
     virt-manager
+    efibootmgr
+    gnome.adwaita-icon-theme
+    lm_sensors
   ];
   
   services.mpd = {

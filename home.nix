@@ -78,6 +78,10 @@ in
     pandoc
     tex mt mktex
     zip unzip
+    fzf
+
+    # meetings
+    signal-desktop skypeforlinux zoom-us discord
   ];
 
   programs.neovim = {
@@ -100,7 +104,6 @@ in
       coc-json
       coc-diagnostic
       coc-prettier
-      signal-desktop skypeforlinux
     ];
     extraConfig = builtins.readFile ./dotfiles/init.vim;
   };
@@ -114,6 +117,8 @@ in
     };
   };
 
+  #programs.command-not-found.enable = true;
+
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
@@ -121,7 +126,7 @@ in
       enable = true;
       theme = "robbyrussell";
       plugins = [
-        "git" "command-not-found"
+        "git"
       ];
     };
     shellAliases = {

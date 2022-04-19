@@ -26,6 +26,10 @@ function r {
     command rm -f -- "$tempfile" 2>/dev/null
 }
 
+school() {
+  cd "$(find ~/docs/ohsg10/s2 -maxdepth 3 -type d | fzf)"
+}
+
 export TERM=alacritty
 
 timeout 3s pfetch
