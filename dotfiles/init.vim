@@ -31,6 +31,9 @@ autocmd FileType c,cpp,slang set cindent
 " * Keystrokes -- Insert Mode
 autocmd Filetype python set shiftwidth=4 tabstop=4 softtabstop=4
 
+nnoremap <F12> :w <bar> !mktex build <ESC>
+nnoremap <F5> :w <bar> :!bash test.sh <ESC>
+
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -41,6 +44,12 @@ inoremap <A-e> ē
 inoremap <A-i> ī
 inoremap <A-o> ō
 inoremap <A-u> ū
+
+set conceallevel=0
+let g:vim_json_syntax_conceal = 0
+let g:indentLine_setConceal = 0
+let g:tex_flavor = 'latex'
+let g:airline_powerline_fonts = 1
 
 " ========================================================
 " NERDTREE

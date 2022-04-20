@@ -3,14 +3,16 @@ with import <nixpkgs> {};
 with builtins;
 let
   tex = (pkgs.texlive.combine {
-    inherit (pkgs.texlive) scheme-medium
-      collection-bibtexextra
-      collection-latexextra
-      collection-mathscience
-      collection-pictures
-      collection-formatsextra
-      biblatex biblatex-mla
-      pythontex pygmentex;
+    inherit (pkgs.texlive)
+    scheme-medium
+    collection-bibtexextra
+    collection-latexextra
+    collection-mathscience
+    collection-pictures
+    collection-formatsextra
+    pythontex
+    biblatex
+    biblatex-mla;
   });
   mt = stdenv.mkDerivation {
     name = "mt";
@@ -65,7 +67,7 @@ in
   home.packages = with pkgs; [
     xclip neofetch pfetch tmux file
     fff fzf
-    nodejs python3Full
+    python3Full
     shellcheck dash
     wget brave
     bspwm sxhkd polybarFull kitty nitrogen dmenu rofi picom-next eww
@@ -82,8 +84,14 @@ in
     libreoffice-fresh
     transmission-gtk
 
+    imagemagick
+    gimp
+
     # meetings
     signal-desktop skypeforlinux zoom-us discord
+
+    # web dev
+    nodejs-16_x yarn hugo
   ];
 
   programs.neovim = {
