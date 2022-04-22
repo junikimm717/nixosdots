@@ -30,7 +30,7 @@ school() {
   cd "$(find ~/docs/ohsg10/s2 -maxdepth 3 -type d | fzf)"
 }
 
-export TERM=alacritty
+#export TERM=alacritty
 
 timeout 3s pfetch
 

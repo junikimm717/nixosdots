@@ -148,7 +148,7 @@ in
     virt-manager
     efibootmgr
     gnome.adwaita-icon-theme
-    lm_sensors
+    lm_sensors acpi
   ];
   
   services.mpd = {

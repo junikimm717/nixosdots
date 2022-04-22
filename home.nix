@@ -2,46 +2,7 @@
 with import <nixpkgs> {};
 with builtins;
 let
-  tex = (pkgs.texlive.combine {
-    inherit (pkgs.texlive)
-    scheme-medium
-    collection-bibtexextra
-    collection-latexextra
-    collection-mathscience
-    collection-pictures
-    collection-formatsextra
-    pythontex
-    biblatex
-    biblatex-mla;
-  });
-  mt = stdenv.mkDerivation {
-    name = "mt";
-    src = fetchurl {
-      url = "https://github.com/junikimm717/mt/releases/download/33627ab/mt";
-      sha256 =
-      "ec2362864527e215594b1c2279d9c50093dcaf5537a61342c2db2575406962f6";
-    };
-    phases = [ "installPhase" ];
-    installPhase = ''
-    mkdir -p $out/bin
-    cp -r $src $out/bin/mt
-    chmod +x $out/bin/mt
-    '';
-  };
-  mktex = stdenv.mkDerivation {
-    name = "mktex";
-    src = fetchFromGitHub {
-      owner = "junikimm717";
-      repo = "mktex";
-      rev = "29d14bf777596d62a5cae0b5e1b9aa696385a427";
-      sha256 = "1ri6nw6053yipxfp6n6hin36md6dcz9yy502i2xkdsb6y7kdv6qp";
-    };
-    installPhase = ''
-    mkdir -p $out
-    cp -r $src $out/bin
-    chmod +x $out/bin/mktex
-    '';
-  };
+  ownpkg = import ./personal-packages.nix{inherit config pkgs;};
 in
 {
   # Home Manager needs a bit of information about you and the
@@ -65,7 +26,8 @@ in
   programs.starship.enable = true;
 
   home.packages = with pkgs; [
-    xclip neofetch pfetch tmux file
+    xclip neofetch pfetch tmux 
+    file tree cmatrix
     fff fzf
     python3Full
     shellcheck dash
@@ -78,11 +40,17 @@ in
     libsecret
     # schoolwork dependencies
     pandoc
-    tex mt mktex
+    ownpkg.tex ownpkg.mt ownpkg.mktex
     zip unzip
+    termdown bc
 
     libreoffice-fresh
     transmission-gtk
+    
+    # yt-dl
+    youtube-dl
+    ffmpeg
+    parallel
 
     imagemagick
     gimp
@@ -92,6 +60,8 @@ in
 
     # web dev
     nodejs-16_x yarn hugo
+
+    #geogebra
   ];
 
   programs.neovim = {
@@ -158,6 +128,10 @@ in
       "hs" = "home-manager switch";
       "mp" = "ncmpcpp";
       "dots" = "cd ~/.config/nixpkgs/dotfiles";
+      "open" = "rifle";
+      "o" = "rifle";
+      "z" = "rifle";
+      "timer" = "termdown";
     };
     initExtra = builtins.readFile ./dotfiles/zshrc;
     enableSyntaxHighlighting = true;
