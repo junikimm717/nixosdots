@@ -70,7 +70,7 @@ in
     vimAlias = true;
     plugins = with pkgs.vimPlugins; [
       coc-nvim
-      neovim-sensible
+      #neovim-sensible
       vim-airline
       vim-airline-themes
       vimtex
@@ -78,13 +78,16 @@ in
       nerdtree
       barbar-nvim
       nvim-web-devicons
+      nvim-treesitter
       vim-toml
+      #gruvbox
 
       # Coc Plugins
       coc-json
       coc-diagnostic
       coc-prettier
       coc-vimtex
+      coc-python
     ];
     extraConfig = builtins.readFile ./dotfiles/init.vim;
   };

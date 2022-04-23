@@ -12,6 +12,8 @@ set norelativenumber
 set wrap
 set linebreak
 
+set termguicolors
+
 " use indents of 4 spaces, and have them copied down lines:
 set shiftwidth=2
 set tabstop=2
@@ -20,6 +22,7 @@ set expandtab
 set smarttab
 set autoindent
 set textwidth=80
+set colorcolumn=80
 filetype indent off
 
 " enable filetype detection:
