@@ -48,7 +48,8 @@ in
     transmission-gtk
     
     # yt-dl
-    youtube-dl
+    #youtube-dl
+    yt-dlp
     ffmpeg
     parallel
 
@@ -80,6 +81,7 @@ in
       nvim-web-devicons
       nvim-treesitter
       vim-toml
+      ownpkg.autoclose
       #gruvbox
 
       # Coc Plugins
@@ -145,7 +147,7 @@ in
   home.file = {
     # shell-related
     ".tmux.conf".source = ./dotfiles/tmux.conf;
-    #".zshrc".source = ./dotfiles/zshrc;
+    ".bashrc".source = ./dotfiles/bashrc;
     ".config/nixpkgs/config.nix".source = ./dotfiles/config.nix;
 
     # rice configuration

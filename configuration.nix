@@ -30,6 +30,7 @@ in
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   services.thermald.enable = true;
+  services.nfs.server.enable = true;
 
   networking.hostName = "nixos-lemp"; # Define your hostname.
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -130,6 +131,8 @@ in
     jetbrains-mono 
     dejavu_fonts 
     noto-fonts-emoji 
+    noto-fonts-cjk
+    noto-fonts
     iosevka
     font-awesome
     nerdfonts
@@ -149,6 +152,7 @@ in
     efibootmgr
     gnome.adwaita-icon-theme
     lm_sensors acpi
+    rpcbind
   ];
   
   services.mpd = {
