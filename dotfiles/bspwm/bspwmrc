@@ -22,7 +22,7 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
 bspc rule -a Gimp desktop='^8' state=floating follow=on
-bspc rule -a Spotify desktop='^6'
+bspc rule -a Zathura state=tiling
 
 eww daemon
 eww open right

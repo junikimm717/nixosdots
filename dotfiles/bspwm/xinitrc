@@ -3,6 +3,6 @@
 eval "$(gnome-keyring-daemon --start)"
 export SSH_AUTH_SOCK
 
-setxkbmap -option caps:swapescape
+setxkbmap -option caps:escape
 
 exec bspwm

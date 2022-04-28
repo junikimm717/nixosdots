@@ -30,6 +30,10 @@ school() {
   cd "$(find ~/docs/ohsg10/s2 -maxdepth 3 -type d | fzf)"
 }
 
+caps() {
+  setxkbmap -option caps:escape
+}
+
 #export TERM=alacritty
 
 timeout 3s pfetch

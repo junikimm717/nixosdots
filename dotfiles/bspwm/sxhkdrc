@@ -143,11 +143,11 @@ super + {Left,Down,Up,Right}
 
 # old alt keybindings
 #
-#alt + {Left,Right}
-#    brightnessctl set {10%-,10%+}
+alt + {Left,Right}
+    brightnessctl set {10%-,10%+}
 
-#alt + {Up,Down}
-#    /usr/bin/pactl set-sink-volume 0 {+5%,-5%}
+alt + {Up,Down}
+    pamixer set-sink-volume {-i,-d} 5 
 
 # audio stuff
 XF86AudioRaiseVolume
