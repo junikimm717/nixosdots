@@ -82,6 +82,7 @@ in
       nvim-treesitter
       vim-toml
       ownpkg.autoclose
+      emmet-vim
       #gruvbox
 
       # Coc Plugins

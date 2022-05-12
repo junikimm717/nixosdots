@@ -153,6 +153,7 @@ in
     gnome.adwaita-icon-theme
     lm_sensors acpi
     rpcbind
+    docker-compose
   ];
   
   services.mpd = {
