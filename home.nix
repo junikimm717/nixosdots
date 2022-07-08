@@ -32,7 +32,7 @@ in
     python3Full
     shellcheck dash
     wget brave
-    bspwm sxhkd polybarFull kitty nitrogen dmenu rofi picom-next eww
+    bspwm sxhkd polybarFull nitrogen dmenu rofi picom-next eww kitty
     nfs-utils gcc gnumake pulsemixer
     ncmpcpp
     ranger ueberzug sxiv poppler_utils
@@ -90,9 +90,19 @@ in
       coc-diagnostic
       coc-prettier
       coc-vimtex
-      coc-python
+      coc-pyright
     ];
     extraConfig = builtins.readFile ./dotfiles/init.vim;
+  };
+
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscodium;
+    extensions = with pkgs.vscode-extensions; [
+      ms-python.python ms-python.vscode-pylance
+      ms-vscode-remote.remote-ssh
+      vscodevim.vim
+    ];
   };
 
   programs.git = {
