@@ -40,7 +40,7 @@ in
     libsecret
     # schoolwork dependencies
     pandoc
-    ownpkg.tex ownpkg.mt ownpkg.mktex
+    ownpkg.tex ownpkg.mt ownpkg.mktex ownpkg.texbld
     zip unzip
     termdown bc
 
@@ -97,11 +97,13 @@ in
 
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium;
+    #package = pkgs.vscodium;
     extensions = with pkgs.vscode-extensions; [
       ms-python.python ms-python.vscode-pylance
       ms-vscode-remote.remote-ssh
       vscodevim.vim
+      esbenp.prettier-vscode
+      file-icons.file-icons
     ];
   };
 

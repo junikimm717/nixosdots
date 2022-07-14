@@ -159,6 +159,7 @@ in
     rpcbind
     sshfs
     docker-compose
+    vlc
   ];
   
   services.mpd = {
