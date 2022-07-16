@@ -82,14 +82,18 @@ in
   };
   texbld = pkgs.python3.pkgs.buildPythonPackage rec {
     pname = "texbld";
-    version = "0.2.1";
-    src = pkgs.python3.pkgs.fetchPypi {
-      inherit pname version;
-      sha256 = "2eec96b55143d61131e21362b8e8016f800b4f36a34e3364a220d0634a66b5db";
+    version = "0.3.dev0";
+    src = fetchFromGitHub {
+      owner = "texbld";
+      repo = "texbld";
+      rev = "b0a35528a8c89e3c9ae879ca236efec4edaeeea1";
+      sha256 = "18jxvkbm0h72x8fyn09jfw4w2hrk8d79y7skv4y0aflyf5qhymp8";
     };
+    format = "pyproject";
 
     propagatedBuildInputs = with pkgs.python3.pkgs;
         [jsonschema docker requests toml urllib3];
+    buildInputs = with pkgs; [poetry];
     meta = with pkgs.lib; {
       homepage = "https://texbld.com";
       description = "A Modern Build Tool for Your Papers";
