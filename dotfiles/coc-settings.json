@@ -21,5 +21,11 @@
     "blade",
     "svelte"
   ],
+  "languageserver": {
+    "nix": {
+      "command": "rnix-lsp",
+      "filetypes": ["nix"]
+    }
+  },
   "coc.source.vimtex.filetypes": ["tex", "plaintex", "latex"]
 }

@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 let
   ownpkg = import ./personal-packages.nix {inherit config pkgs;};
-  customPython = pkgs.python3.withPackages (ps: with ps; [requests numpy toml]);
 in
 {
   home-manager.useGlobalPkgs = true;
@@ -18,8 +17,6 @@ in
     neofetch pfetch tmux 
     file tree
     fff fzf
-    customPython
-    shellcheck
     wget brave
     nfs-utils pulsemixer
     ranger ueberzug sxiv poppler_utils

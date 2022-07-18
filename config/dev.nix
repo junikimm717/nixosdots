@@ -1,8 +1,15 @@
 { config, pkgs, ... }:
 let
   ownpkg = import ./personal-packages.nix {inherit config pkgs;};
+  customPython = pkgs.python3.withPackages (ps: with ps; [requests numpy toml]);
 in
 {
+  environment.systemPackages = with pkgs; [
+    customPython
+    shellcheck
+    rnix-lsp
+  ];
+
   programs.starship.enable = true;
   programs.zsh = {
     enable = true;
