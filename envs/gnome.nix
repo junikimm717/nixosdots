@@ -7,5 +7,9 @@
     gnome.gedit gnome.gnome-clocks gnome-connections gnome.yelp evince
   ];
 
+  environment.systemPackages = with pkgs; [
+    gnomeExtensions.pop-shell
+  ];
+
   hardware.pulseaudio.enable = pkgs.lib.mkForce false;
 }
