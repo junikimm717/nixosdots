@@ -25,7 +25,7 @@
       system = "x86_64-linux";
       modules = commonModules ++ [
         ./config/lemp.nix
-        ./envs/bspwm.nix
+        ./systems/lemp.nix
       ];
     };
   };
