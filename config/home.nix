@@ -14,6 +14,7 @@ in
   };
 
   environment.systemPackages = with pkgs; [
+    xclip
     neofetch pfetch tmux 
     file tree
     fff fzf

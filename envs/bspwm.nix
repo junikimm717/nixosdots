@@ -4,7 +4,7 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
-    xclip bspwm sxhkd polybarFull nitrogen dmenu rofi picom-next eww
+    bspwm sxhkd polybarFull nitrogen dmenu rofi picom-next eww
   ];
 
   services.xserver.displayManager.startx.enable = true;
