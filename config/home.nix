@@ -60,6 +60,7 @@ in
       # shell-related
       ".tmux.conf".source = ../dotfiles/tmux.conf;
       ".bashrc".source = ../dotfiles/bashrc;
+      ".zshrc".source = ../dotfiles/home_zshrc;
 
       # application configuration
       ".config/kitty/kitty.conf".source = ../dotfiles/kitty.conf;

@@ -1,5 +1,3 @@
-set -o vi
-
 export MT_EDITOR=nvim
 export VISUAL=nvim
 
@@ -43,6 +41,8 @@ export MKTEX_TEMPLATE_DIR="$HOME/.config/nixpkgs/mktex_templates"
 export MKTEX_HOOK=/home/junikim/docs/ohsg10/bin/stupdate
 
 # =======================================================
+
+set -o vi
 
 resetcursor() {
   printf '\033]50;CursorShape=1\x7'
