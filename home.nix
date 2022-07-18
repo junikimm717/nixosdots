@@ -3,6 +3,7 @@ with import <nixpkgs> {};
 with builtins;
 let
   ownpkg = import ./personal-packages.nix{inherit config pkgs;};
+  customPython = python3.withPackages (ps: with ps; [requests numpy]);
 in
 {
   # Home Manager needs a bit of information about you and the
@@ -29,7 +30,7 @@ in
     xclip neofetch pfetch tmux 
     file tree cmatrix
     fff fzf
-    python3Full
+    customPython
     shellcheck dash
     wget brave
     bspwm sxhkd polybarFull nitrogen dmenu rofi picom-next eww kitty
@@ -91,6 +92,7 @@ in
       coc-prettier
       coc-vimtex
       coc-pyright
+      coc-tsserver
     ];
     extraConfig = builtins.readFile ./dotfiles/init.vim;
   };
@@ -104,6 +106,8 @@ in
       vscodevim.vim
       esbenp.prettier-vscode
       file-icons.file-icons
+      arrterian.nix-env-selector
+      jnoortheen.nix-ide
     ];
   };
 
@@ -150,6 +154,9 @@ in
       "o" = "rifle";
       "z" = "rifle";
       "timer" = "termdown";
+      "nd" = "nix develop --command zsh";
+      "ns" = "nix-shell --run zsh";
+      "nb" = "nix build";
     };
     initExtra = builtins.readFile ./dotfiles/zshrc;
     enableSyntaxHighlighting = true;

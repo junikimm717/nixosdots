@@ -36,7 +36,7 @@ caps() {
 
 #export TERM=alacritty
 
-timeout 3s pfetch
+#timeout 3s pfetch
 
 # =======================================================
 # MKTEX configuration
