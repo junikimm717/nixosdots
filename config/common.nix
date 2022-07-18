@@ -5,7 +5,6 @@
 { config, pkgs, lib, ... }:
 
 let
-  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
   brotherdriver = import ./brother.nix { 
     pkgsi686Linux = pkgs.pkgsi686Linux; 
     lib = lib;
@@ -13,17 +12,6 @@ let
   };
 in
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      (import "${home-manager}/nixos")
-    ];
-
-  services.xserver.displayManager.startx.enable = true;
-  fileSystems."/home/junikim/docs" = {
-      device = "/dev/disk/by-label/docs";
-      fsType = "ext4";
-  };
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -32,24 +20,11 @@ in
   services.thermald.enable = true;
   services.nfs.server.enable = true;
 
-  networking.hostName = "nixos-lemp"; # Define your hostname.
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "US/Eastern";
-
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-  #networking.useDHCP = true;
-  #networking.interfaces.enp1s0.useDHCP = true;
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     font = "Lat2-Terminus16";
@@ -58,16 +33,18 @@ in
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+  # Configure keymap in X11
+  services.xserver.layout = "us";
+  services.xserver.xkbOptions = "eurosign:e";
   services.physlock = {
     enable = true;
-    lockMessage = "NixOS-lemp locked";
+    lockMessage = "computer locked";
     allowAnyUser = true;
     lockOn = {
       suspend = true;
       hibernate = true;
     };
   };
-  #programs.xss-lock.enable = true;
 
   # use nix flakes
   nix = {
@@ -77,12 +54,6 @@ in
     '';
    };
 
-  #programs.command-not-found.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.layout = "us";
-  services.xserver.xkbOptions = "eurosign:e";
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
   services.printing.drivers = [ brotherdriver.driver brotherdriver.cupswrapper ];
@@ -91,27 +62,15 @@ in
   # like  "Impossible to connect to XXX.local: Name or service not known"
   services.avahi.nssmdns = true;
 
-
   # Enable sound.
-  sound.enable = true;
   hardware.bluetooth.enable = true;
   #services.blueman.enable = true;
-  services.pipewire.enable = true;
-  services.pipewire.alsa.enable = true;
-  services.pipewire.pulse.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
 
   virtualisation.docker.enable = true;
   virtualisation.libvirtd.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.junikim = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "video" "audio" "input" "docker" "libvirtd" "networkmanager" ]; # Enable ‘sudo’ for the user.
-    shell = pkgs.zsh;
-  };
 
   nixpkgs.config.allowUnfree = true;
   environment.homeBinInPath = true;
@@ -129,8 +88,6 @@ in
     extraPackages = [ pkgs.mesa.drivers ];
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   fonts.fonts = with pkgs; [ 
     jetbrains-mono 
     dejavu_fonts 
@@ -149,7 +106,7 @@ in
     bash dash git
     wget brave scrot
     nfs-utils gcc gnumake
-    mpd mpc_cli htop
+    htop
     gnome.seahorse
     ranger
     virt-manager
@@ -161,30 +118,6 @@ in
     docker-compose
     vlc
   ];
-  
-  services.mpd = {
-    enable = true;
-    musicDirectory = "/home/junikim/docs/music";
-    dataDir = "/home/junikim/docs/music/mpd";
-    user = "junikim";
-    extraConfig = ''
-audio_output {
-        type            "pipewire"
-        name            "MPD Pipewire"
-}
-# adds fifo
-audio_output {
-    type                    "fifo"
-    name                    "my_fifo"
-    path                    "/tmp/mpd.fifo"
-    format                  "44100:16:2"
-}
-'';
-  };
-systemd.services.mpd.environment = {
-    # https://gitlab.freedesktop.org/pipewire/pipewire/-/issues/609
-    XDG_RUNTIME_DIR = "/run/user/1000"; # User-id 1000 must match above user. MPD will look inside this directory for the PipeWire socket.
-};
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

@@ -3,8 +3,6 @@ set -o vi
 export MT_EDITOR=nvim
 export VISUAL=nvim
 
-eval "$(starship init zsh)"
-
 f() {
     fff "$@"
     cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
