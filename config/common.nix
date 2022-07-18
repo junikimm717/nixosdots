@@ -36,15 +36,7 @@ in
   # Configure keymap in X11
   services.xserver.layout = "us";
   services.xserver.xkbOptions = "eurosign:e";
-  services.physlock = {
-    enable = true;
-    lockMessage = "computer locked";
-    allowAnyUser = true;
-    lockOn = {
-      suspend = true;
-      hibernate = true;
-    };
-  };
+
 
   # use nix flakes
   nix = {

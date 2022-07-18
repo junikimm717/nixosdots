@@ -8,6 +8,15 @@ in
   ];
 
   services.xserver.displayManager.startx.enable = true;
+  services.physlock = {
+    enable = true;
+    lockMessage = "computer locked";
+    allowAnyUser = true;
+    lockOn = {
+      suspend = true;
+      hibernate = true;
+    };
+  };
 
   home-manager.users.junikim = {
     home.file = {
