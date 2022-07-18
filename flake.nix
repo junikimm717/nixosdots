@@ -24,8 +24,8 @@
     nixosConfigurations.nixos-lemp = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = commonModules ++ [
-        ./config/lemp.nix
         ./systems/lemp.nix
+        ./envs/bspwm.nix
       ];
     };
   };
