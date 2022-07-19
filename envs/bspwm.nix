@@ -7,6 +7,8 @@ in
     bspwm sxhkd polybarFull nitrogen dmenu rofi picom-next eww
   ];
 
+  services.gnome.gnome-keyring.enable = true;
+  programs.seahorse.enable = true;
   services.xserver.displayManager.startx.enable = true;
   services.physlock = {
     enable = true;

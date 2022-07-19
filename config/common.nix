@@ -70,10 +70,6 @@ in
     "EDITOR" = "nvim";
   };
 
-  services.gnome = {
-    gnome-keyring.enable = true;
-  };
-  programs.seahorse.enable = true;
   programs.dconf.enable = true;
   hardware.opengl = {
     enable = true;
