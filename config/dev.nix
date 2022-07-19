@@ -35,7 +35,6 @@ in
       "vs" = "nvim /etc/nixos/dotfiles/bspwm/sxhkdrc";
       "vb" = "nvim /etc/nixos/dotfiles/bspwm/bspwmrc";
       "sz" = "source /etc/nixos/dotfiles/zshrc";
-      "vh" = "nvim /etc/nixos/home.nix";
       "nrb" = "sudo nixos-rebuild switch";
       "mp" = "ncmpcpp";
       "open" = "rifle";
