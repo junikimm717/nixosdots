@@ -60,6 +60,7 @@ in
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
+  services.xserver.libinput.touchpad.tapping = false;
 
   virtualisation.docker.enable = true;
   virtualisation.libvirtd.enable = true;
@@ -79,6 +80,7 @@ in
   fonts.fonts = with pkgs; [ 
     jetbrains-mono 
     dejavu_fonts 
+    freefont_ttf
     noto-fonts-emoji 
     noto-fonts-cjk
     noto-fonts
