@@ -5,13 +5,12 @@
 { config, pkgs, lib, ... }:
 
 let
-  brotherdriver = import ./brother.nix { 
-    pkgsi686Linux = pkgs.pkgsi686Linux; 
+  brotherdriver = import ./brother.nix {
+    pkgsi686Linux = pkgs.pkgsi686Linux;
     lib = lib;
     pkgs = pkgs;
   };
-in
-{
+in {
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -37,18 +36,18 @@ in
   services.xserver.layout = "us";
   services.xserver.xkbOptions = "eurosign:e";
 
-
   # use nix flakes
   nix = {
     package = pkgs.nixFlakes; # or versioned attributes like nix_2_7
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
-   };
+  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-  services.printing.drivers = [ brotherdriver.driver brotherdriver.cupswrapper ];
+  services.printing.drivers =
+    [ brotherdriver.driver brotherdriver.cupswrapper ];
   services.avahi.enable = true;
   # Important to resolve .local domains of printers, otherwise you get an error
   # like  "Impossible to connect to XXX.local: Name or service not known"
@@ -67,9 +66,7 @@ in
 
   nixpkgs.config.allowUnfree = true;
   environment.homeBinInPath = true;
-  environment.variables = {
-    "EDITOR" = "nvim";
-  };
+  environment.variables = { "EDITOR" = "nvim"; };
 
   programs.dconf.enable = true;
   hardware.opengl = {
@@ -77,11 +74,11 @@ in
     extraPackages = [ pkgs.mesa.drivers ];
   };
 
-  fonts.fonts = with pkgs; [ 
-    jetbrains-mono 
-    dejavu_fonts 
+  fonts.fonts = with pkgs; [
+    jetbrains-mono
+    dejavu_fonts
     freefont_ttf
-    noto-fonts-emoji 
+    noto-fonts-emoji
     noto-fonts-cjk
     noto-fonts
     iosevka
@@ -89,20 +86,36 @@ in
     nerdfonts
   ];
   environment.systemPackages = with pkgs; [
-    xorg.xbacklight pamixer brightnessctl blueberry
-    vim neovim neofetch pfetch tmux kitty
+    xorg.xbacklight
+    pamixer
+    brightnessctl
+    blueberry
+    vim
+    neovim
+    neofetch
+    pfetch
+    tmux
+    kitty
     fff
-    nodejs shellcheck
-    bash dash git
-    wget brave scrot
-    nfs-utils gcc gnumake
+    nodejs
+    shellcheck
+    bash
+    dash
+    git
+    wget
+    brave
+    scrot
+    nfs-utils
+    gcc
+    gnumake
     htop
     gnome.seahorse
     ranger
     virt-manager
     efibootmgr
     gnome.adwaita-icon-theme
-    lm_sensors acpi
+    lm_sensors
+    acpi
     rpcbind
     sshfs
     docker-compose

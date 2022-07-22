@@ -1,14 +1,10 @@
 { config, pkgs, ... }:
 let
-  ownpkg = import ./personal-packages.nix {inherit config pkgs;};
-  customPython = pkgs.python3.withPackages (ps: with ps; [requests numpy toml]);
-in
-{
-  environment.systemPackages = with pkgs; [
-    customPython
-    shellcheck
-    rnix-lsp
-  ];
+  ownpkg = import ./personal-packages.nix { inherit config pkgs; };
+  customPython =
+    pkgs.python3.withPackages (ps: with ps; [ requests numpy toml ]);
+in {
+  environment.systemPackages = with pkgs; [ customPython shellcheck rnix-lsp ];
 
   programs.starship.enable = true;
   programs.zsh = {
@@ -17,9 +13,7 @@ in
     ohMyZsh = {
       enable = true;
       theme = "robbyrussell";
-      plugins = [
-        "git"
-      ];
+      plugins = [ "git" ];
     };
     shellAliases = {
       "gac" = "git add . && git commit";
@@ -83,7 +77,8 @@ in
       enable = true;
       #package = pkgs.vscodium;
       extensions = with pkgs.vscode-extensions; [
-        ms-python.python ms-python.vscode-pylance
+        ms-python.python
+        ms-python.vscode-pylance
         ms-vscode-remote.remote-ssh
         vscodevim.vim
         esbenp.prettier-vscode
@@ -97,9 +92,7 @@ in
       enable = true;
       userName = "Juni Kim";
       userEmail = "junikimm717@gmail.com";
-      extraConfig = {
-        credential.helper = "store";
-      };
+      extraConfig = { credential.helper = "store"; };
     };
   };
 }

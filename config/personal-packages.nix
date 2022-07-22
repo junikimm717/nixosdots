@@ -1,18 +1,11 @@
-{config, pkgs, ...}:
+{ config, pkgs, ... }:
 with builtins;
-with pkgs;
-{
+with pkgs; {
   tex = (pkgs.texlive.combine {
     inherit (pkgs.texlive)
-    scheme-small
-    collection-bibtexextra
-    collection-latexextra
-    collection-mathscience
-    collection-pictures
-    collection-formatsextra
-    biblatex latexmk
-    pythontex
-    biblatex-mla;
+      scheme-small collection-bibtexextra collection-latexextra
+      collection-mathscience collection-pictures collection-formatsextra
+      biblatex latexmk pythontex biblatex-mla;
   });
 
   # meeting joining program
@@ -21,13 +14,13 @@ with pkgs;
     src = fetchurl {
       url = "https://github.com/junikimm717/mt/releases/download/33627ab/mt";
       sha256 =
-      "ec2362864527e215594b1c2279d9c50093dcaf5537a61342c2db2575406962f6";
+        "ec2362864527e215594b1c2279d9c50093dcaf5537a61342c2db2575406962f6";
     };
     phases = [ "installPhase" ];
     installPhase = ''
-    mkdir -p $out/bin
-    cp -r $src $out/bin/mt
-    chmod +x $out/bin/mt
+      mkdir -p $out/bin
+      cp -r $src $out/bin/mt
+      chmod +x $out/bin/mt
     '';
   };
   autoclose = pkgs.vimUtils.buildVimPlugin {

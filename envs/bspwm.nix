@@ -1,10 +1,15 @@
-{config, pkgs, ...}:
-let
-  ownpkg = import ./personal-packages.nix{inherit config pkgs;};
-in
-{
+{ config, pkgs, ... }:
+let ownpkg = import ./personal-packages.nix { inherit config pkgs; };
+in {
   environment.systemPackages = with pkgs; [
-    bspwm sxhkd polybarFull nitrogen dmenu rofi picom-next eww
+    bspwm
+    sxhkd
+    polybarFull
+    nitrogen
+    dmenu
+    rofi
+    picom-next
+    eww
   ];
 
   services.gnome.gnome-keyring.enable = true;
@@ -27,12 +32,21 @@ in
       ".config/bspwm/bspwmrc".source = ../dotfiles/bspwm/bspwmrc;
       ".config/bspwm/kill.sh".source = ../dotfiles/bspwm/kill.sh;
       ".config/sxhkd/sxhkdrc".source = ../dotfiles/bspwm/sxhkdrc;
-      ".config/polybar" = {source = ../dotfiles/bspwm/polybar; recursive = true;};
+      ".config/polybar" = {
+        source = ../dotfiles/bspwm/polybar;
+        recursive = true;
+      };
       ".config/picom/picom.conf".source = ../dotfiles/picom.conf;
 
       # application configuration
-      ".config/rofi" = {source = ../dotfiles/rofi; recursive = true;};
-      ".config/eww" = {source = ../dotfiles/eww; recursive = true;};
+      ".config/rofi" = {
+        source = ../dotfiles/rofi;
+        recursive = true;
+      };
+      ".config/eww" = {
+        source = ../dotfiles/eww;
+        recursive = true;
+      };
     };
   };
 }

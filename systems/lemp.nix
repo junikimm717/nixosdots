@@ -4,13 +4,12 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   networking.hostName = "nixos-lemp"; # Define your hostname.
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+  boot.initrd.availableKernelModules =
+    [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
@@ -18,25 +17,25 @@
   services.xserver.videoDrivers = [ "modesetting" ];
   services.xserver.useGlamor = true;
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/07d5c355-5a58-402d-9a8c-d6081ad7b1d4";
-      fsType = "ext4";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/07d5c355-5a58-402d-9a8c-d6081ad7b1d4";
+    fsType = "ext4";
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/71AE-09C4";
-      fsType = "vfat";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/71AE-09C4";
+    fsType = "vfat";
+  };
 
-  fileSystems."/home/junikim/docs" = 
-    { device = "/dev/disk/by-label/docs";
-      fsType = "ext4";
+  fileSystems."/home/junikim/docs" = {
+    device = "/dev/disk/by-label/docs";
+    fsType = "ext4";
   };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/ff7bebf4-8556-47d6-8242-94c56e6b2027"; }
-    ];
+    [{ device = "/dev/disk/by-uuid/ff7bebf4-8556-47d6-8242-94c56e6b2027"; }];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.intel.updateMicrocode =
+    lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
