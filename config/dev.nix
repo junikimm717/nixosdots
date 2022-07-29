@@ -33,7 +33,7 @@ in {
       "mp" = "ncmpcpp";
       "open" = "rifle";
       "o" = "rifle";
-      "z" = "rifle";
+      "z" = "zathura --fork";
       "timer" = "termdown";
       "nd" = "nix develop --command zsh";
       "ns" = "nix-shell --run zsh";
