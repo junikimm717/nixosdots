@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.05";
     home-manager.url = "github:nix-community/home-manager";
-    texbld.url = "github:texbld/texbld/release-0.3";
+    texbld.url = "github:texbld/texbld/release-0.4";
     system76-keyboard-configurator.url =
       "github:junikimm717/system76-keyboard-configurator";
   };

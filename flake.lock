@@ -15,6 +15,21 @@
         "type": "github"
       }
     },
+    "flake-utils_2": {
+      "locked": {
+        "lastModified": 1659877975,
+        "narHash": "sha256-zllb8aq3YO3h8B/U0/J1WBgAL8EX5yWf5pMj3G0NAmc=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "c0e246b9b83f637f4681389ecabcb2681b4f3af0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": "nixpkgs",
@@ -160,19 +175,20 @@
     },
     "texbld": {
       "inputs": {
+        "flake-utils": "flake-utils_2",
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1658092952,
-        "narHash": "sha256-pMnRemh0ZHdlvROXqR+dG6jdZTKIz83Mm9zdzVCwkPs=",
+        "lastModified": 1661545033,
+        "narHash": "sha256-PIw5MpiV0ehoBW3MP6t9gsdkYOz0iBqnO/HprcG1gjw=",
         "owner": "texbld",
         "repo": "texbld",
-        "rev": "f078642eabcbe338279a1dca2514028520ee80c2",
+        "rev": "db89fb3252eba363205aeafdc270fe96ab88a72c",
         "type": "github"
       },
       "original": {
         "owner": "texbld",
-        "ref": "release-0.3",
+        "ref": "release-0.4",
         "repo": "texbld",
         "type": "github"
       }
