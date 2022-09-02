@@ -3,7 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.05";
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager/release-22.05";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
     texbld.url = "github:texbld/texbld/release-0.4";
     system76-keyboard-configurator.url =
       "github:junikimm717/system76-keyboard-configurator";
