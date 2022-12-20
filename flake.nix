@@ -5,14 +5,14 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
     home-manager.url = "github:nix-community/home-manager/release-22.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    texbld.url = "github:texbld/texbld/release-0.4";
-    texbld.inputs.nixpkgs.follows = "nixpkgs";
+    #texbld.url = "github:texbld/texbld/release-0.4";
+    #texbld.inputs.nixpkgs.follows = "nixpkgs";
     system76-keyboard-configurator.url =
       "github:pop-os/keyboard-configurator";
     system76-keyboard-configurator.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, texbld
+  outputs = { self, nixpkgs, home-manager
     , system76-keyboard-configurator, ... }:
     let
       commonModules = [
@@ -23,8 +23,8 @@
         ./config/home.nix
         ({ config, ... }: {
           environment.systemPackages = [
-            texbld.defaultPackage.x86_64-linux
-            system76-keyboard-configurator.defaultPackage.x86_64-linux
+            #texbld.defaultPackage.x86_64-linux
+            #system76-keyboard-configurator.defaultPackage.x86_64-linux
           ];
         })
       ];
