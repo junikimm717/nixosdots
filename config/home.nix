@@ -88,6 +88,7 @@ in {
         source = ../dotfiles/ranger;
         recursive = true;
       };
+      ".config/zathura/zathurarc".source = ../dotfiles/zathurarc;
       "bin" = {
         source = ../bin;
         recursive = true;

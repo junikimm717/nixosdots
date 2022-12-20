@@ -15,7 +15,7 @@
   boot.extraModulePackages = [ ];
 
   services.xserver.videoDrivers = [ "modesetting" ];
-  services.xserver.useGlamor = true;
+  #services.xserver.useGlamor = true;
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/07d5c355-5a58-402d-9a8c-d6081ad7b1d4";
