@@ -4,7 +4,13 @@ let
   customPython =
     pkgs.python3.withPackages (ps: with ps; [ requests numpy toml ]);
 in {
-  environment.systemPackages = with pkgs; [ customPython shellcheck rnix-lsp ];
+  environment.systemPackages = with pkgs; [ customPython shellcheck rnix-lsp
+  clang-tools ];
+
+  programs.tmux = {
+    enable = true;
+    extraConfig = builtins.readFile ../dotfiles/tmux.conf;
+  };
 
   programs.starship.enable = true;
   programs.zsh = {
@@ -33,7 +39,6 @@ in {
       "mp" = "ncmpcpp";
       "open" = "rifle";
       "o" = "rifle";
-      "z" = "zathura --fork";
       "timer" = "termdown";
       "nd" = "nix develop --command zsh";
       "ns" = "nix-shell --run zsh";
@@ -50,18 +55,6 @@ in {
       vimAlias = true;
       plugins = with pkgs.vimPlugins; [
         coc-nvim
-        vim-airline
-        vim-airline-themes
-        vimtex
-        vim-nix
-        nerdtree
-        barbar-nvim
-        nvim-web-devicons
-        nvim-treesitter
-        vim-toml
-        ownpkg.autoclose
-        emmet-vim
-
         # Coc Plugins
         coc-json
         coc-diagnostic
@@ -69,6 +62,28 @@ in {
         coc-vimtex
         coc-pyright
         coc-tsserver
+        coc-clangd
+        coc-go
+
+
+        vimtex
+        vim-nix
+        nvim-tree-lua
+        barbar-nvim
+        nvim-web-devicons
+        nvim-treesitter.withAllGrammars
+        vim-toml
+        ownpkg.autoclose
+        emmet-vim
+        zig-vim
+
+        vim-airline
+        vim-airline-themes
+        catppuccin-nvim
+        vim-fugitive
+
+        telescope-nvim
+        plenary-nvim
       ];
       extraConfig = builtins.readFile ../dotfiles/init.vim;
     };

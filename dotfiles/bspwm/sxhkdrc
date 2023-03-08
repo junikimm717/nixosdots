@@ -3,8 +3,12 @@
 #
 
 # terminal emulator
-super + Return
+super + shift + Return
+	kitty -e tmux
+
+super + shift + a
 	kitty
+
 # browser
 super + shift + w
     brave
@@ -12,7 +16,6 @@ super + shift + w
 # program launcher
 super + {p,space}
   rofi -show drun
-	#dmenu_run -fn "Fira Code:size=14"
 
 # make sxhkd reload its configuration files:
 super + Escape

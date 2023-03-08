@@ -22,7 +22,6 @@ in {
     xclip
     neofetch
     pfetch
-    tmux
     file
     tree
     fff
@@ -78,12 +77,12 @@ in {
 
     home.file = {
       # shell-related
-      ".tmux.conf".source = ../dotfiles/tmux.conf;
       ".bashrc".source = ../dotfiles/bashrc;
       ".zshrc".source = ../dotfiles/home_zshrc;
 
       # application configuration
       ".config/kitty/kitty.conf".source = ../dotfiles/kitty.conf;
+      ".config/alacritty/alacritty.yml".source = ../dotfiles/alacritty.yml;
       ".config/ranger" = {
         source = ../dotfiles/ranger;
         recursive = true;

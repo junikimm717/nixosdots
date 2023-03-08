@@ -2,25 +2,6 @@
   "diagnostic-languageserver.filetypes": {
     "sh": ["shellcheck", "-x"]
   },
-  "coc.preferences.formatOnSaveFiletypes": [
-    "css",
-    "markdown",
-    "json",
-    "javascript",
-    "typescript",
-    "javascriptreact",
-    "typescriptreact",
-    "svelte",
-    "php"
-  ],
-  "html.filetypes": [
-    "html",
-    "handlebars",
-    "htmldjango",
-    "vue",
-    "blade",
-    "svelte"
-  ],
   "languageserver": {
     "nix": {
       "command": "rnix-lsp",
@@ -37,6 +18,10 @@
         "hie.yaml"
       ],
       "filetypes": ["haskell", "lhaskell"]
+    },
+    "zig": {
+      "command": "zls",
+      "filetypes": ["zig"]
     }
   },
   "coc.source.vimtex.filetypes": ["tex", "plaintex", "latex"]

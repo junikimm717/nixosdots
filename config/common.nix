@@ -84,7 +84,7 @@ in {
     noto-fonts
     iosevka
     font-awesome
-    nerdfonts
+    (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
   ];
   environment.systemPackages = with pkgs; [
     xorg.xbacklight
