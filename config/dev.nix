@@ -3,6 +3,16 @@ let
   ownpkg = import ./personal-packages.nix { inherit config pkgs; };
   customPython =
     pkgs.python3.withPackages (ps: with ps; [ requests numpy toml ]);
+  yuck-vim = pkgs.vimUtils.buildVimPlugin {
+    name = "yuck.vim";
+    src = pkgs.fetchFromGitHub {
+      owner = "elkowar";
+      repo = "yuck.vim";
+      rev = "9b5e0370f70cc30383e1dabd6c215475915fe5c3";
+      sha256 = "1mkf0vd8vvw1njlczlgai80djw1n1a7dl1k940l089d3vvqr5dhp";
+    };
+  };
+
 in {
   environment.systemPackages = with pkgs; [ customPython shellcheck rnix-lsp
   clang-tools ];
@@ -65,9 +75,9 @@ in {
         coc-clangd
         coc-go
 
-
         vimtex
         vim-nix
+        yuck-vim
         vim-css-color
         nvim-tree-lua
         barbar-nvim
