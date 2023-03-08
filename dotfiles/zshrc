@@ -46,7 +46,7 @@ export MKTEX_HOOK=/home/junikim/docs/ohsg10/bin/stupdate
 
 export WORKSPACES=/home/junikim/nas/rpi/ohsg11:/home/junikim/docs/programming:$WORKSPACES
 
-bindkey -s "^f" "tmuxs\n"
+bindkey -s "^f" "tmuxs -d 4\n"
 
 # =======================================================
 

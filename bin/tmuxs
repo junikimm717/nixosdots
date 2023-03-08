@@ -32,21 +32,21 @@ done
 if test -z "$sessiondir"; then
   if ! test -z "$depth" && test "$depth" -eq 0; then
   sessiondir="$(find $findargs\
-    \! -name '*.git*'\
-    \! -name '*.vscode*'\
-    \! -name '*.idea*'\
-    \! -name '*node_modules*'\
-    \! -name '*__pycache__*'\
-    \! -name '*venv*'\
+    \! -iwholename '*.git*'\
+    \! -iwholename '*.vscode*'\
+    \! -iwholename '*.idea*'\
+    \! -iwholename '*node_modules*'\
+    \! -iwholename '*__pycache__*'\
+    \! -iwholename '*venv*'\
     -type d 2>/dev/null | fzf)"
   else
   sessiondir="$(find $findargs -maxdepth ${depth:-2}\
-    \! -name '*.git*'\
-    \! -name '*.vscode*'\
-    \! -name '*.idea*'\
-    \! -name '*node_modules*'\
-    \! -name '*__pycache__*'\
-    \! -name '*venv*'\
+    \! -iwholename '*.git*'\
+    \! -iwholename '*.vscode*'\
+    \! -iwholename '*.idea*'\
+    \! -iwholename '*node_modules*'\
+    \! -iwholename '*__pycache__*'\
+    \! -iwholename '*venv*'\
     -type d 2>/dev/null | fzf)"
   fi
 fi
