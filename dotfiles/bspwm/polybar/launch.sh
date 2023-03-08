@@ -1,22 +1,21 @@
-#!/usr/bin/env bash
+#!/bin/sh
+if test "$1" = "-r"; then
+  RELOAD=1
+  echo "Hot reload..."
+else
+  RELOAD=
+fi
 
-# Terminate already running bar instances
 pkill polybar
 
-# Wait until the processes have been shut down
-while pgrep -u "$(id -u)" -x polybar >/dev/null; do sleep 1; done
-
-# Launch Polybar, using default config location ~/.config/polybar/config
-
-newver() {
-    polybar main & sleep 0.5
-    polybar pulse &
-    polybar backlight &
-    polybar bspwm &
-    polybar battery &
-    polybar wlan &
+bar() {
+  if test -z "$RELOAD"; then
+    polybar -c "$HOME/.config/polybar/config.ini" "$@" &
+  else
+    polybar -r -c "$HOME/.config/polybar/config.ini" -l warning "$@" &
+  fi
 }
 
-newver
-
-echo "Polybar launched..."
+bar top
+bar workspaces-role
+bar bottom

@@ -45,6 +45,8 @@ in {
     unzip
     termdown
     bc
+    ripgrep
+    uxplay
 
     libreoffice-fresh
     transmission-gtk

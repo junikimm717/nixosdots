@@ -10,24 +10,39 @@ nitrogen --restore &
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-#bspc monitor -d I II III IV V VI VII VIII IX X
-bspc monitor -d 1 2 3 4 5 6
+bspc monitor -d 0 1 2 3 4 5 6 7 8
 
-bspc config border_width         1
-bspc config window_gap          20
+bspc config border_width         2
+bspc config window_gap          12
 
 bspc config top_padding         25
 bspc config split_ratio          0.50
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
-bspc rule -a Gimp desktop='^8' state=floating follow=on
-bspc rule -a Zathura state=tiling
+bspc rule -a Alacritty desktop='^1'
+bspc rule -a kitty desktop='^1'
 
-eww daemon
-eww open right
+bspc rule -a "Brave-browser" desktop='^2'
+bspc rule -a "Tor Browser" desktop='^2'
+bspc rule -a "torbrowser" desktop='^2'
+bspc rule -a "firefox" desktop='^2'
 
-# only add if nothing is there
-#if test "$(mpc playlist | wc -l)" -eq 0 ; then
-#  mpc ls | mpc add
-#fi
+bspc rule -a "discord" desktop='^4'
+bspc rule -a "Skype" desktop='^4'
+bspc rule -a "zoom" desktop='^4' state=floating
+bspc rule -a "Signal" desktop='^4'
+bspc rule -a "GStreamer" desktop='^4'
+
+bspc rule -a "Code" desktop='^3'
+bspc rule -a "jetbrains" desktop='^3'
+bspc rule -a "sublime" desktop='^3'
+bspc rule -a "Pulsar" desktop='^3'
+
+bspc rule -a "Virt-manager" desktop='^5'
+
+bspc rule -a "cantata" desktop='^6'
+bspc rule -a "youtube-music" desktop='^6'
+
+bspc rule -a "Blueberry.py" desktop='^7'
+bspc rule -a "control-center" desktop='^7'

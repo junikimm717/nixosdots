@@ -232,6 +232,11 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " END Coc
 " =====================================================================
 
+autocmd BufReadPost *
+      \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+      \ |   exe "normal! g`\""
+      \ | endif
+nnoremap Q <nop>
 
 " ========================================================
 " Barbar.nvim

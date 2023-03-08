@@ -7,7 +7,7 @@
                                :anchor "right center")
            :stacking 'bg'
            :windowtype "dock"
-           :wm-ignore true
+           :wm-ignore "false"
     (root)
   )
 

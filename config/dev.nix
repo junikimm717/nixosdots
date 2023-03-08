@@ -68,6 +68,7 @@ in {
 
         vimtex
         vim-nix
+        vim-css-color
         nvim-tree-lua
         barbar-nvim
         nvim-web-devicons

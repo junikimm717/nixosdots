@@ -84,6 +84,7 @@ in {
     noto-fonts
     iosevka
     font-awesome
+    siji
     (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
   ];
   environment.systemPackages = with pkgs; [

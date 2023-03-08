@@ -4,10 +4,10 @@
 
 # terminal emulator
 super + shift + Return
-	kitty -e tmux
+	alacritty -e tmux
 
 super + shift + a
-	kitty
+	alacritty
 
 # browser
 super + shift + w
