@@ -7,15 +7,14 @@ $gray:        #3B4442;
 $white:       #1B2020;
 $gray:        #2A3331;
 $gray: $darkblue;
-$green:       #7CA198;
-$yellow:      #DDB278;
-$blue:        #6080B0;
-$purple:      #8E6F98;
-$cyan:        #6ca8cf;
+$green:       #a6e3a1;
+$yellow:      #f9e2af;
+$blue:        #89b4fa;
+$purple:      #cba6f7;
 
 
 
-$bg : #000000;
+$bg : #11111b;
 $fg : #ffffff;
 $border : #cec0af;
 
@@ -25,16 +24,12 @@ $border : #cec0af;
 }
 
 .background {
-  //background-color: #{$darkblue};
   background-color: transparent;
-  color: #{beige};
 }
 
 .container {
-  //background-color: #{$darkblue};
-  background-color: black;
+  background-color: #{$bg};
   color: #{$fg};
-  //border: 5px solid #{$border};
   border-radius: 1rem;
   margin: 1rem;
   padding-top: 1rem;
@@ -155,8 +150,4 @@ $border : #cec0af;
 
 .mt-20 {
   margin-top: 20px;
-}
-
-.beige {
-  color: $beige;
 }

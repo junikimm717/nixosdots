@@ -107,7 +107,7 @@
       :class "progress box yellowscale"
       :orientation "h"
       :space-evenly false
-      (label :text "CPU")
+      (label :text "")
       (scale 
         :min 0
         :max 101
@@ -150,9 +150,8 @@
 ;    ))
 
 (defwidget cal []
-  (box :class "container beige" :orientation "v" :space-evenly true
+  (box :class "container" :orientation "v" :space-evenly true
     (calendar :valign "center")
-    ;(label :text rems :valign "center")
     ))
 
 (deflisten battery :initial "UNK" `loop battery.sh`)
@@ -162,4 +161,3 @@
 (deflisten paused :initial "-" `~/.config/eww/scripts/loop ~/.config/eww/scripts/music.sh paused`)
 (defpoll cpu :interval "1s" "echo `top -b -n1 | grep \"Cpu(s)\" | awk '{print $2 + $4}'`")
 (defpoll songperc :interval "1s" "~/.config/eww/scripts/songperc.sh")
-(defpoll rems :interval "1m" "rems l")
