@@ -5,11 +5,6 @@
 { config, pkgs, lib, ... }:
 
 let
-  brotherdriver = import ./brother.nix {
-    pkgsi686Linux = pkgs.pkgsi686Linux;
-    lib = lib;
-    pkgs = pkgs;
-  };
 in {
 
   boot.loader.systemd-boot.enable = true;
@@ -46,16 +41,20 @@ in {
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-  services.printing.drivers =
-    [ brotherdriver.driver brotherdriver.cupswrapper ];
-  services.avahi.enable = true;
-  # Important to resolve .local domains of printers, otherwise you get an error
-  # like  "Impossible to connect to XXX.local: Name or service not known"
-  services.avahi.nssmdns = true;
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+    openFirewall = true;
+    publish.enable = true;
+    publish.addresses = true;
+    publish.workstation = true;
+    publish.userServices = true;
+  };
+
 
   # Enable sound.
   hardware.bluetooth.enable = true;
-  #services.blueman.enable = true;
+  services.blueman.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;

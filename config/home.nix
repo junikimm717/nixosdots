@@ -37,6 +37,7 @@ in {
     zathura
     mupdf
     libsecret
+    flameshot
     # schoolwork dependencies
     pandoc
     ownpkg.tex

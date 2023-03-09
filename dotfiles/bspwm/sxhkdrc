@@ -166,9 +166,5 @@ XF86AudioMute
 {XF86MonBrightnessUp,XF86MonBrightnessDown}
     brightnessctl set {10%+,10%-}
 
-# screenshot capability
-super + shift + s
-    mkdir -p ~/screenshots && scrot ~/screenshots/%Y-%m-%d-%T-screenshot.png
-
 Print
-    mkdir -p ~/screenshots && scrot ~/screenshots/%Y-%m-%d-%T-screenshot.png
+    mkdir -p ~/screenshots && flameshot gui --path ~/screenshots

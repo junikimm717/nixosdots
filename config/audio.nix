@@ -1,9 +1,14 @@
 { config, pkgs, ... }: {
   sound.enable = true;
 
-  services.pipewire.enable = true;
-  services.pipewire.alsa.enable = true;
-  services.pipewire.pulse.enable = true;
+  hardware.pulseaudio = {
+    enable = true;
+    package = pkgs.pulseaudioFull;
+  };
+
+  #services.pipewire.enable = true;
+  #services.pipewire.alsa.enable = true;
+  #services.pipewire.pulse.enable = true;
 
   environment.systemPackages = with pkgs; [ mpc_cli ncmpcpp ];
 

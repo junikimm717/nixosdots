@@ -6,8 +6,8 @@
                                :height "70%"
                                :anchor "right center")
            :stacking 'bg'
-           :windowtype "dock"
-           :wm-ignore "false"
+           :windowtype "desktop"
+           :wm-ignore false
     (root)
   )
 
@@ -94,7 +94,7 @@
       :class "progress box greenscale"
       :orientation "h"
       :space-evenly false
-      (label :text "  ")
+      (label :text "  ")
       (scale 
         :min 0
         :max 101
@@ -107,7 +107,7 @@
       :class "progress box yellowscale"
       :orientation "h"
       :space-evenly false
-      (label :text "")
+      (label :text "  ")
       (scale 
         :min 0
         :max 101
@@ -131,23 +131,18 @@
     (button :class "launchbutton" :onclick "rofi -show drun&"  ""))
 
     (eventbox :class "launch"
-    (button :class "launchbutton" :onclick "kitty -e \"nvim\"&"  ""))
+    (button :class "launchbutton" :onclick "alacritty -e \"nvim\"&"  ""))
 
     (eventbox :class "launch"
     (button :class "launchbutton" :onclick "code&"  ""))
 
     (eventbox :class "launch"
     (button :class "launchbutton" :onclick "brave&"  "爵"))
-    ))
 
-;(defwidget bat []
-;  (box :class "container header" :orientation "v" 
-;      :space-evenly true
-;      (circular-progress 
-;        :value {EWW_BATTERY["BAT0"]["capacity"]} 
-;        :class "progress" :thickness 10)
-;      (label :text battery)
-;    ))
+    (eventbox :class "launch"
+      (checkbox :class "launchbutton" :onchecked "uxplay &" :onunchecked "pkill uxplay"
+        (label :text "")))
+  ))
 
 (defwidget cal []
   (box :class "container" :orientation "v" :space-evenly true

@@ -78,6 +78,7 @@ in {
         vimtex
         vim-nix
         yuck-vim
+        gitsigns-nvim
         vim-css-color
         nvim-tree-lua
         barbar-nvim
@@ -111,6 +112,7 @@ in {
         file-icons.file-icons
         arrterian.nix-env-selector
         jnoortheen.nix-ide
+        catppuccin.catppuccin-vsc
       ];
     };
 
