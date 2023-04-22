@@ -22,7 +22,7 @@ in {
     extraConfig = builtins.readFile ../dotfiles/tmux.conf;
   };
 
-  programs.starship.enable = true;
+  #programs.starship.enable = false;
   programs.zsh = {
     enable = true;
     autosuggestions.enable = true;

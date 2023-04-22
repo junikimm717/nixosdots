@@ -22,9 +22,15 @@ set softtabstop=2
 set expandtab
 set smarttab
 set autoindent
+set smartindent
 set textwidth=80
 set colorcolumn=80
 filetype indent off
+
+set nohlsearch incsearch
+set scrolloff=7
+set wildmode=longest,list,full
+set wildmenu
 
 " enable filetype detection:
 filetype on
@@ -349,5 +355,15 @@ else
   vim.keymap.set("n", "<C-f>", unavailable)
   vim.keymap.set("n", "<C-y>", unavailable)
 end
+
+-- treesitter
+
+require 'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    disable = { "latex", "perl", "htmldjango" },
+    additional_vim_regex_highlighting = false,
+  },
+}
 
 EOF

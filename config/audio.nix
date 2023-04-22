@@ -19,8 +19,8 @@
     user = "junikim";
     extraConfig = ''
       audio_output {
-              type            "pipewire"
-              name            "MPD Pipewire"
+        type            "pulse"
+        name            "pulse audio"
       }
       # adds fifo
       audio_output {
