@@ -18,7 +18,7 @@ in {
   networking.networkmanager.enable = true;
 
   # Set your time zone.
-  time.timeZone = "US/Eastern";
+  #time.timeZone = "US/Eastern";
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     font = "Lat2-Terminus16";
@@ -50,7 +50,6 @@ in {
     publish.workstation = true;
     publish.userServices = true;
   };
-
 
   # Enable sound.
   hardware.bluetooth.enable = true;
@@ -103,6 +102,7 @@ in {
     bash
     dash
     git
+    git-lfs
     wget
     brave
     scrot

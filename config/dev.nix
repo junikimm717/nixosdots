@@ -14,8 +14,12 @@ let
   };
 
 in {
-  environment.systemPackages = with pkgs; [ customPython shellcheck rnix-lsp
-  clang-tools ];
+  environment.systemPackages = with pkgs; [
+    customPython
+    shellcheck
+    rnix-lsp
+    clang-tools
+  ];
 
   programs.tmux = {
     enable = true;
@@ -122,5 +126,6 @@ in {
       userEmail = "junikimm717@gmail.com";
       extraConfig = { credential.helper = "store"; };
     };
+    programs.git.lfs.enable = true;
   };
 }

@@ -15,6 +15,21 @@
         "type": "github"
       }
     },
+    "flake-utils_2": {
+      "locked": {
+        "lastModified": 1659877975,
+        "narHash": "sha256-zllb8aq3YO3h8B/U0/J1WBgAL8EX5yWf5pMj3G0NAmc=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "c0e246b9b83f637f4681389ecabcb2681b4f3af0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -89,7 +104,8 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "system76-keyboard-configurator": "system76-keyboard-configurator"
+        "system76-keyboard-configurator": "system76-keyboard-configurator",
+        "texbld": "texbld"
       }
     },
     "system76-keyboard-configurator": {
@@ -111,6 +127,28 @@
       "original": {
         "owner": "pop-os",
         "repo": "keyboard-configurator",
+        "type": "github"
+      }
+    },
+    "texbld": {
+      "inputs": {
+        "flake-utils": "flake-utils_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1682204115,
+        "narHash": "sha256-0AYrbBod9fzBHWU+0U5iC9F/FJn/Xo9FUNi73rwMXtw=",
+        "owner": "texbld",
+        "repo": "texbld",
+        "rev": "3c2abe49159e8a0a9fbd3214ecc8aa7ad775f809",
+        "type": "github"
+      },
+      "original": {
+        "owner": "texbld",
+        "ref": "master",
+        "repo": "texbld",
         "type": "github"
       }
     },
