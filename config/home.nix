@@ -63,6 +63,7 @@ in {
     skypeforlinux
     zoom-us
     discord
+    whatsapp-for-linux
   ];
 
   home-manager.users.junikim = {
