@@ -291,9 +291,9 @@ map('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
 map('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
 map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
 
-require('bufferline').setup {
+require('barbar').setup {
   animation = false,
-  icon_pinned = '',
+  icons = { pinned = { button = '', filename=true}},
 }
 
 
@@ -334,9 +334,9 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 --============================================================
 --nvim-tree
 nvimtree = require("nvim-tree")
-
-vim.keymap.set("n", "<C-n>", nvimtree.toggle)
 nvimtree.setup()
+
+vim.keymap.set("n", "<C-n>", [[<cmd>NvimTreeToggle<cr>]])
 
 --============================================================
 --fugitive
