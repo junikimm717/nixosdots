@@ -71,6 +71,7 @@ in {
   hardware.opengl = {
     enable = true;
     extraPackages = [ pkgs.mesa.drivers ];
+    driSupport32Bit = true;
   };
 
   fonts.fonts = with pkgs; [
@@ -95,7 +96,7 @@ in {
     neofetch
     pfetch
     tmux
-    kitty
+    kitty alacritty
     fff
     nodejs
     shellcheck

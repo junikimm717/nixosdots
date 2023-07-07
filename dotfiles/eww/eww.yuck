@@ -55,9 +55,9 @@
       :spacing 90
       :space-evenly true
       :orientation "h"
-      (button :onclick "mpc prev" :class "musicbutton"  "玲") 
+      (button :onclick "mpc prev" :class "musicbutton"  "‹") 
       (button :onclick "mpc toggle" :class "musicbutton"  paused) 
-      (button :onclick "mpc next" :class "musicbutton"  "怜"))))
+      (button :onclick "mpc next" :class "musicbutton"  "›"))))
 
 (defwidget sys []
   (box 
@@ -69,7 +69,7 @@
       :class "progress box bluescale"
       :orientation "h"
       :space-evenly false
-      (label :text " /")
+      (label :text "󰨣 /")
       (scale 
         :min 0
         :max 101
@@ -81,7 +81,7 @@
       :class "progress box bluescale"
       :orientation "h"
       :space-evenly false
-      (label :text " ")
+      (label :text "󰨣 ")
       (scale 
         :min 0
         :max 101
@@ -137,11 +137,11 @@
     (button :class "launchbutton" :onclick "code&"  ""))
 
     (eventbox :class "launch"
-    (button :class "launchbutton" :onclick "brave&"  "爵"))
+    (button :class "launchbutton" :onclick "brave&"  "󰖟"))
 
     (eventbox :class "launch"
       (checkbox :class "launchbutton" :onchecked "uxplay &" :onunchecked "pkill uxplay"
-        (label :text "")))
+        (label :text "󰦉")))
   ))
 
 (defwidget cal []
