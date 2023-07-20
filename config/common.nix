@@ -96,7 +96,8 @@ in {
     neofetch
     pfetch
     tmux
-    kitty alacritty
+    kitty
+    alacritty
     fff
     nodejs
     shellcheck

@@ -38,6 +38,18 @@
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode =
     lib.mkDefault config.hardware.enableRedistributableFirmware;
-  environment.systemPackages = with pkgs; [
-  ];
+  environment.systemPackages = with pkgs; [ ];
+
+  #networking.nameservers =
+    #[ "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
+
+  #services.resolved = {
+  #  enable = true;
+  #  dnssec = "true";
+  #  domains = [ "~." ];
+  #  fallbackDns = [ "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
+  #  extraConfig = ''
+  #    DNSOverTLS=yes
+  #  '';
+  #};
 }

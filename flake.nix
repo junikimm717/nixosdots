@@ -9,8 +9,8 @@
     system76-keyboard-configurator.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, system76-keyboard-configurator
-    , ... }:
+  outputs =
+    { self, nixpkgs, home-manager, system76-keyboard-configurator, ... }:
     let
       commonModules = [
         home-manager.nixosModule

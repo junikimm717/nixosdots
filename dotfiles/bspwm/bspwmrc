@@ -32,11 +32,11 @@ bspc rule -a "Tor Browser" desktop='^2'
 bspc rule -a "torbrowser" desktop='^2'
 bspc rule -a "firefox" desktop='^2'
 
-bspc rule -a "discord" desktop='^4'
 bspc rule -a "Skype" desktop='^4'
 bspc rule -a "zoom" desktop='^4' state=floating
 bspc rule -a "Signal" desktop='^4'
 bspc rule -a "GStreamer" desktop='^4'
+bspc rule -a "whatsapp-for-linux" desktop='^4'
 
 bspc rule -a "Code" desktop='^3'
 bspc rule -a "jetbrains" desktop='^3'
@@ -50,3 +50,5 @@ bspc rule -a "youtube-music" desktop='^6'
 
 bspc rule -a "Blueberry.py" desktop='^7'
 bspc rule -a "control-center" desktop='^7'
+
+bspc rule -a "discord" desktop='^8'

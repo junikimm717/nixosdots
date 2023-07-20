@@ -55,6 +55,7 @@ in {
     yt-dlp
     ffmpeg
     parallel
+    xfce.thunar
 
     imagemagick
 
