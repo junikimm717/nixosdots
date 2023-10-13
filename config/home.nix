@@ -28,6 +28,7 @@ in {
     fzf
     wget
     brave
+    firefox
     nfs-utils
     pulsemixer
     ranger
@@ -51,6 +52,8 @@ in {
 
     libreoffice-fresh
     transmission-gtk
+
+    geogebra
 
     yt-dlp
     ffmpeg

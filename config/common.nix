@@ -82,6 +82,8 @@ in {
     noto-fonts-cjk
     noto-fonts
     iosevka
+    meslo-lg
+    liberation_ttf
     font-awesome
     siji
     (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
@@ -123,6 +125,8 @@ in {
     sshfs
     docker-compose
     vlc
+    libvlc
+    mpv
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -5,7 +5,7 @@ with pkgs; {
     inherit (pkgs.texlive)
       scheme-small collection-bibtexextra collection-latexextra
       collection-mathscience collection-pictures collection-formatsextra
-      biblatex latexmk pythontex biblatex-mla;
+      biblatex latexmk pythontex biblatex-mla asymptote collection-fontsextra;
   });
 
   # meeting joining program
