@@ -44,7 +44,7 @@ z() {
 export MKTEX_TEMPLATE_DIR="$HOME/.config/nixpkgs/mktex_templates"
 export MKTEX_HOOK=/home/junikim/docs/ohsg10/bin/stupdate
 
-export WORKSPACES=/home/junikim/nas/rpi/ohsg12/s1:/home/junikim/docs/programming:$WORKSPACES
+export WORKSPACES=/home/junikim/docs/ohsg12/s1:/home/junikim/nas/rpi/ohsg12/s1:/home/junikim/docs/programming:$WORKSPACES
 
 bindkey -s "^f" "tmuxs -d 4\n"
 

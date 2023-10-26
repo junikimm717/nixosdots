@@ -6,7 +6,12 @@ let g:airline_powerline_fonts = 1
 
 set guicursor=""
 
-colorscheme catppuccin-mocha
+lua <<EOF
+require('catppuccin').setup {
+  transparent_background = true,
+}
+vim.cmd.colorscheme "catppuccin-mocha"
+EOF
 
 set number
 set norelativenumber
