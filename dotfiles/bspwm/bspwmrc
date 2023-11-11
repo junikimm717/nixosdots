@@ -4,6 +4,7 @@ pkill picom
 while pgrep picom > /dev/null 2>&1; do
   sleep 0.5
 done
+dunst &
 picom --corner-radius 15 &
 nitrogen --restore &
 ~/.config/polybar/launch.sh

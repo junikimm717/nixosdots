@@ -39,9 +39,10 @@
   hardware.cpu.intel.updateMicrocode =
     lib.mkDefault config.hardware.enableRedistributableFirmware;
   environment.systemPackages = with pkgs; [ ];
+  programs.fuse.userAllowOther = true;
 
   #networking.nameservers =
-    #[ "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
+  #[ "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
 
   #services.resolved = {
   #  enable = true;

@@ -53,7 +53,7 @@ in {
     libreoffice-fresh
     transmission-gtk
 
-    geogebra
+    #geogebra
 
     yt-dlp
     ffmpeg
@@ -70,6 +70,18 @@ in {
     whatsapp-for-linux
   ];
 
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-wlr
+        xdg-desktop-portal-gtk
+      ];
+    };
+  };
+
+  services.flatpak.enable = true;
+
   home-manager.users.junikim = {
 
     # Home Manager needs a bit of information about you and the
@@ -82,6 +94,7 @@ in {
     programs.home-manager.enable = true;
 
     services.syncthing.enable = true;
+    services.dunst.enable = true;
 
     home.file = {
       # shell-related
