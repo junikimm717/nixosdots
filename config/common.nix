@@ -7,6 +7,7 @@
 let
 in {
 
+  boot.kernelParams = ["i915.force_probe=9a49"];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
@@ -70,8 +71,13 @@ in {
   programs.dconf.enable = true;
   hardware.opengl = {
     enable = true;
-    extraPackages = [ pkgs.mesa.drivers ];
+    extraPackages = with pkgs; [
+      intel-media-driver # LIBVA_DRIVER_NAME=iHD
+      vaapiIntel         # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+    ];
+    driSupport = true;
     driSupport32Bit = true;
+    #driSupport32Bit = true;
   };
 
   fonts.fonts = with pkgs; [

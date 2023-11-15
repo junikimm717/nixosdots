@@ -22,13 +22,18 @@
           environment.systemPackages = [
             #texbld.defaultPackage.x86_64-linux
             #system76-keyboard-configurator.defaultPackage.x86_64-linux
+            #nixgl.defaultPackage.x86_64-linux
           ];
         })
       ];
     in {
       nixosConfigurations.nixos-lemp = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ [ ./systems/lemp.nix ./envs/bspwm.nix ];
+        overlays = [ nixgl.overlay ];
+        modules = commonModules ++ [
+          ./systems/lemp.nix
+          ./envs/bspwm.nix
+        ];
       };
       formatter.x86_64-linux = nixpkgs.legacyPackages."x86_64-linux".nixfmt;
     };
