@@ -124,7 +124,7 @@ in {
       enable = true;
       userName = "Juni Kim";
       userEmail = "junikimm717@gmail.com";
-      extraConfig = { credential.helper = "store"; };
+      extraConfig = { credential.helper = "store"; http.postBuffer = 157286400; };
     };
     programs.git.lfs.enable = true;
   };

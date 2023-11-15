@@ -29,7 +29,6 @@
     in {
       nixosConfigurations.nixos-lemp = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        overlays = [ nixgl.overlay ];
         modules = commonModules ++ [
           ./systems/lemp.nix
           ./envs/bspwm.nix
