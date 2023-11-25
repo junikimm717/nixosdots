@@ -29,10 +29,7 @@
     in {
       nixosConfigurations.nixos-lemp = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ [
-          ./systems/lemp.nix
-          ./envs/bspwm.nix
-        ];
+        modules = commonModules ++ [ ./systems/lemp.nix ./envs/bspwm.nix ];
       };
       formatter.x86_64-linux = nixpkgs.legacyPackages."x86_64-linux".nixfmt;
     };

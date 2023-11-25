@@ -19,7 +19,10 @@ in {
     shellcheck
     rnix-lsp
     clang-tools
+    sublime4
   ];
+
+  nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
 
   programs.tmux = {
     enable = true;
@@ -124,7 +127,10 @@ in {
       enable = true;
       userName = "Juni Kim";
       userEmail = "junikimm717@gmail.com";
-      extraConfig = { credential.helper = "store"; http.postBuffer = 157286400; };
+      extraConfig = {
+        credential.helper = "store";
+        http.postBuffer = 157286400;
+      };
     };
     programs.git.lfs.enable = true;
   };
