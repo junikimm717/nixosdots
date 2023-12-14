@@ -80,7 +80,7 @@ in {
     #driSupport32Bit = true;
   };
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     jetbrains-mono
     dejavu_fonts
     freefont_ttf
