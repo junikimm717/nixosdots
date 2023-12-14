@@ -95,6 +95,7 @@ in {
         ownpkg.autoclose
         emmet-vim
         zig-vim
+        vim-asymptote
 
         vim-airline
         vim-airline-themes

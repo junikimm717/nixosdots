@@ -42,6 +42,7 @@ in {
     # schoolwork dependencies
     pandoc
     ownpkg.tex
+    asymptote
     ownpkg.mt
     zip
     unzip

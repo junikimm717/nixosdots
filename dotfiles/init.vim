@@ -48,6 +48,7 @@ autocmd Filetype python set shiftwidth=4 tabstop=4 softtabstop=4
 
 nnoremap <F12> :w <bar> !mktex build <ESC>
 nnoremap <F5> :w <bar> :!bash test.sh <ESC>
+nnoremap <F4> :w <bar> :!asy -V %:p <ESC>
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
