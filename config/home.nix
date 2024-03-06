@@ -67,12 +67,16 @@ in {
     signal-desktop
     skypeforlinux
     zoom-us
-    discord
     whatsapp-for-linux
+
+    openvpn
+
+    obs-studio
   ];
 
   xdg = {
     portal = {
+      config.common.default = "*";
       enable = true;
       extraPortals = with pkgs; [
         xdg-desktop-portal-wlr
@@ -101,6 +105,13 @@ in {
       # shell-related
       ".bashrc".source = ../dotfiles/bashrc;
       ".zshrc".source = ../dotfiles/home_zshrc;
+
+      # LaTeX
+      ".latexmkrc".source = ../dotfiles/latexmkrc;
+      ".asy" = {
+        source = ../dotfiles/asy;
+        recursive = true;
+      };
 
       # application configuration
       ".config/kitty/kitty.conf".source = ../dotfiles/kitty.conf;

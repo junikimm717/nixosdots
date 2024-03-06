@@ -364,6 +364,12 @@ end
 
 -- treesitter
 
+vim.filetype.add({
+  extension = {
+    mdx = 'mdx'
+  }
+})
+
 require 'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
@@ -371,5 +377,7 @@ require 'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
+
+vim.treesitter.language.register('markdown', 'mdx')
 
 EOF
