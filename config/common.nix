@@ -29,8 +29,8 @@ in {
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   # Configure keymap in X11
-  services.xserver.layout = "us";
-  services.xserver.xkbOptions = "eurosign:e";
+  services.xserver.xkb.layout = "us";
+  services.xserver.xkb.options = "eurosign:e";
 
   # use nix flakes
   nix = {
@@ -44,7 +44,7 @@ in {
   services.printing.enable = true;
   services.avahi = {
     enable = true;
-    nssmdns = true;
+    nssmdns4 = true;
     openFirewall = true;
     publish.enable = true;
     publish.addresses = true;
@@ -57,9 +57,9 @@ in {
   services.blueman.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
-  services.xserver.libinput.touchpad.tapping = false;
-  services.xserver.libinput.touchpad.naturalScrolling = true;
+  services.libinput.enable = true;
+  services.libinput.touchpad.tapping = false;
+  services.libinput.touchpad.naturalScrolling = true;
 
   virtualisation.docker.enable = true;
   virtualisation.libvirtd.enable = true;

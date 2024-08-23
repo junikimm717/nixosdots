@@ -3,10 +3,6 @@
     "sh": ["shellcheck", "-x"]
   },
   "languageserver": {
-    "nix": {
-      "command": "rnix-lsp",
-      "filetypes": ["nix"]
-    },
     "asy": {
       "command": "asy",
       "args": ["-lsp"],

@@ -116,7 +116,7 @@ in {
 
       # application configuration
       ".config/kitty/kitty.conf".source = ../dotfiles/kitty.conf;
-      ".config/alacritty/alacritty.yml".source = ../dotfiles/alacritty.yml;
+      ".config/alacritty/alacritty.toml".source = ../dotfiles/alacritty.toml;
       ".config/ranger" = {
         source = ../dotfiles/ranger;
         recursive = true;
