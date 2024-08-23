@@ -68,6 +68,7 @@ in {
     skypeforlinux
     zoom-us
     whatsapp-for-linux
+    discord
 
     openvpn
 

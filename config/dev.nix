@@ -17,7 +17,6 @@ in {
   environment.systemPackages = with pkgs; [
     customPython
     shellcheck
-    rnix-lsp
     clang-tools
     sublime4
   ];
