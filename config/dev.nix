@@ -2,7 +2,7 @@
 let
   ownpkg = import ./personal-packages.nix { inherit config pkgs; };
   customPython =
-    pkgs.python3.withPackages (ps: with ps; [ requests numpy toml ]);
+    pkgs.python3.withPackages (ps: with ps; [ requests numpy toml pytest ]);
   yuck-vim = pkgs.vimUtils.buildVimPlugin {
     name = "yuck.vim";
     src = pkgs.fetchFromGitHub {
@@ -19,6 +19,9 @@ in {
     shellcheck
     clang-tools
     sublime4
+
+    pylint
+    black
   ];
 
   nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1w" ];

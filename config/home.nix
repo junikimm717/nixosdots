@@ -69,6 +69,7 @@ in {
     zoom-us
     whatsapp-for-linux
     discord
+    slack
 
     openvpn
 
