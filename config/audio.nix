@@ -1,12 +1,10 @@
 { config, pkgs, ... }: {
-  sound.enable = true;
-
   hardware.pulseaudio = {
     enable = true;
     package = pkgs.pulseaudioFull;
   };
 
-  #services.pipewire.enable = true;
+  services.pipewire.enable = false;
   #services.pipewire.alsa.enable = true;
   #services.pipewire.pulse.enable = true;
 

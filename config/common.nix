@@ -34,7 +34,7 @@ in {
 
   # use nix flakes
   nix = {
-    package = pkgs.nixFlakes; # or versioned attributes like nix_2_7
+    package = pkgs.nixVersions.stable; # or versioned attributes like nix_2_7
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
@@ -69,14 +69,13 @@ in {
   environment.variables = { "EDITOR" = "nvim"; };
 
   programs.dconf.enable = true;
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
       intel-media-driver # LIBVA_DRIVER_NAME=iHD
       vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
     ];
-    driSupport = true;
-    driSupport32Bit = true;
+    #driSupport32Bit = true;
     #driSupport32Bit = true;
   };
 
@@ -85,7 +84,7 @@ in {
     dejavu_fonts
     freefont_ttf
     noto-fonts-emoji
-    noto-fonts-cjk
+    noto-fonts-cjk-sans
     noto-fonts
     iosevka
     meslo-lg
@@ -120,11 +119,11 @@ in {
     gcc
     gnumake
     htop
-    gnome.seahorse
+    seahorse
     ranger
     virt-manager
     efibootmgr
-    gnome.adwaita-icon-theme
+    adwaita-icon-theme
     lm_sensors
     acpi
     rpcbind
