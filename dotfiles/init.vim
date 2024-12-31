@@ -27,7 +27,6 @@ set softtabstop=2
 set expandtab
 set smarttab
 set autoindent
-set smartindent
 set textwidth=80
 set colorcolumn=80
 filetype indent off
@@ -42,7 +41,7 @@ filetype on
 
 autocmd FileType markdown,tex,text set nosmarttab noautoindent
 " for C-like programming, have automatic indentation:
-autocmd FileType c,cpp,slang set cindent
+autocmd FileType c,cpp,slang set cindent smartindent
 " * Keystrokes -- Insert Mode
 autocmd Filetype python set shiftwidth=4 tabstop=4 softtabstop=4
 
@@ -380,5 +379,21 @@ require 'nvim-treesitter.configs'.setup {
 }
 
 vim.treesitter.language.register('markdown', 'mdx')
+
+-- ufo
+
+vim.o.foldcolumn = '1' -- '0' is not bad
+vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+
+vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
+vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+require('ufo').setup({
+    provider_selector = function(bufnr, filetype, buftype)
+        return {'treesitter', 'indent'}
+    end
+})
+
 
 EOF

@@ -103,6 +103,7 @@ in {
         vim-airline-themes
         catppuccin-nvim
         vim-fugitive
+        nvim-ufo
 
         telescope-nvim
         plenary-nvim
@@ -133,6 +134,7 @@ in {
       extraConfig = {
         credential.helper = "store";
         http.postBuffer = 157286400;
+        pull.rebase = true;
       };
     };
     programs.git.lfs.enable = true;

@@ -35,6 +35,10 @@ z() {
   zathura --fork $@ > /dev/null 2>&1 
 }
 
+gbc() {
+  git branch $1 && git checkout $1
+}
+
 #export TERM=alacritty
 
 #timeout 3s pfetch
