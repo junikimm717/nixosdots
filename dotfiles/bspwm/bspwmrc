@@ -35,6 +35,7 @@ bspc rule -a "firefox" desktop='^2'
 
 bspc rule -a "Skype" desktop='^4'
 bspc rule -a "zoom" desktop='^4' state=floating
+bspc rule -a "uim-candwin-gtk" state=floating
 bspc rule -a "Signal" desktop='^4'
 bspc rule -a "GStreamer" desktop='^4'
 bspc rule -a "whatsapp-for-linux" desktop='^4'

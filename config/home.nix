@@ -23,6 +23,7 @@ in {
 
   environment.systemPackages = with pkgs; [
     xclip
+    uim
     neofetch
     pfetch
     file
@@ -76,6 +77,8 @@ in {
     openvpn
 
     obs-studio
+
+    musescore
   ];
 
   xdg = {
@@ -139,6 +142,7 @@ in {
       ".config/ncmpcpp/config".source = ../dotfiles/ncmpcpp.conf;
       ".local/share/applications/ncmpcpp.desktop".source =
         ../dotfiles/ncmpcpp.desktop;
+      ".uim".source = ../dotfiles/uim.scm;
     };
   };
 }

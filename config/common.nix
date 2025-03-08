@@ -21,6 +21,8 @@ in {
   # Set your time zone.
   #time.timeZone = "US/Eastern";
   i18n.defaultLocale = "en_US.UTF-8";
+  i18n.inputMethod.type = "uim";
+  i18n.inputMethod.enable = true;
   console = {
     font = "Lat2-Terminus16";
     keyMap = "us";
@@ -29,8 +31,8 @@ in {
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   # Configure keymap in X11
-  services.xserver.xkb.layout = "us";
-  services.xserver.xkb.options = "eurosign:e";
+  services.xserver.xkb.layout = "us,kr";
+  services.xserver.xkb.options = "eurosign:e, compose:menu, grp:alt_space_toggle";
 
   # use nix flakes
   nix = {
@@ -129,6 +131,8 @@ in {
     rpcbind
     sshfs
     docker-compose
+    podman
+    platformio
     vlc
     libvlc
     mpv

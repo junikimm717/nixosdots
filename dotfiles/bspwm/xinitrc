@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 
+export GTK_IM_MODULE=uim
+export QT_IM_MODULE=uim
+uim-xim &
+export XMODIFIERS=@im=uim
+
 eval "$(gnome-keyring-daemon --start)"
 export SSH_AUTH_SOCK
 
-setxkbmap -option caps:escape
 dbus-update-activation-environment DISPLAY XAUTHORITY
 exec bspwm
