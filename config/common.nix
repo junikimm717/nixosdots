@@ -21,8 +21,12 @@ in {
   # Set your time zone.
   #time.timeZone = "US/Eastern";
   i18n.defaultLocale = "en_US.UTF-8";
-  i18n.inputMethod.type = "uim";
-  i18n.inputMethod.enable = true;
+  i18n.inputMethod = {
+    enable = true;
+    type = "fcitx5";
+    fcitx5.addons = with pkgs; [ fcitx5-hangul fcitx5-gtk fcitx5-nord ];
+  };
+
   console = {
     font = "Lat2-Terminus16";
     keyMap = "us";
@@ -95,7 +99,17 @@ in {
     siji
     (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
   ];
+
+  environment.variables = {
+    INPUT_METHOD="fcitx";
+    XMODIFIERS = "@im=fcitx";
+    GTK_IM_MODULE = "fcitx";
+    QT_IM_MODULE = "fcitx";
+  };
+
   environment.systemPackages = with pkgs; [
+    fcitx5-configtool
+
     xorg.xbacklight
     pamixer
     brightnessctl

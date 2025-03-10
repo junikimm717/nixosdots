@@ -23,7 +23,6 @@ in {
 
   environment.systemPackages = with pkgs; [
     xclip
-    uim
     neofetch
     pfetch
     file

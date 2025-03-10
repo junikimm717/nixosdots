@@ -5,3 +5,4 @@
 
 (define byeoru-key? #t)
 (define byeoru-toggle-key "Shift-space") ;; Toggle with Shift+Space
+(define-key generic-off-key? '())

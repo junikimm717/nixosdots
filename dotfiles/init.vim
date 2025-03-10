@@ -18,6 +18,9 @@ set norelativenumber
 set wrap
 set linebreak
 
+set iminsert=1
+set imsearch=1
+
 set termguicolors
 
 " use indents of 4 spaces, and have them copied down lines:

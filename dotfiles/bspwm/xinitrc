@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 
-export GTK_IM_MODULE=uim
-export QT_IM_MODULE=uim
-uim-xim &
-export XMODIFIERS=@im=uim
+fcitx5 &
 
 eval "$(gnome-keyring-daemon --start)"
 export SSH_AUTH_SOCK
