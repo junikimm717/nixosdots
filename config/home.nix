@@ -29,6 +29,7 @@ in {
     tree
     fff
     fzf
+    podman
     wget
     brave
     firefox
@@ -67,7 +68,6 @@ in {
 
     # meetings
     signal-desktop
-    skypeforlinux
     zoom-us
     whatsapp-for-linux
     discord

@@ -100,6 +100,7 @@ in {
         vim-asymptote
 
         vim-airline
+        fcitx-vim
         vim-airline-themes
         catppuccin-nvim
         vim-fugitive
@@ -114,7 +115,7 @@ in {
     programs.vscode = {
       enable = true;
       #package = pkgs.vscodium;
-      extensions = with pkgs.vscode-extensions; [
+      profiles.default.extensions = with pkgs.vscode-extensions; [
         ms-python.python
         ms-python.vscode-pylance
         ms-vscode-remote.remote-ssh

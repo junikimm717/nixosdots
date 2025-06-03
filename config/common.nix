@@ -97,7 +97,8 @@ in {
     liberation_ttf
     font-awesome
     siji
-    (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.fira-code
   ];
 
   environment.variables = {
@@ -116,8 +117,7 @@ in {
     blueberry
     vim
     neovim
-    neofetch
-    pfetch
+    fastfetch
     tmux
     kitty
     alacritty

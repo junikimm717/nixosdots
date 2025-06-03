@@ -2,8 +2,8 @@
   description = "Juni's Nix Flake dotfiles";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
-    home-manager.url = "github:nix-community/home-manager/release-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     system76-keyboard-configurator.url = "github:pop-os/keyboard-configurator";
     system76-keyboard-configurator.inputs.nixpkgs.follows = "nixpkgs";
@@ -13,7 +13,7 @@
     { self, nixpkgs, home-manager, system76-keyboard-configurator, ... }:
     let
       commonModules = [
-        home-manager.nixosModule
+        home-manager.nixosModules.home-manager
         ./config/audio.nix
         ./config/common.nix
         ./config/dev.nix
